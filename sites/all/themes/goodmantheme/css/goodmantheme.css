@@ -7,3 +7,55 @@
  * remember to update the name in the info file
  * as well.
  */
+
+h1#site-name {
+    font-size: 2.692em;
+    margin: 0 0 0.2em;
+    padding: 0;
+}
+
+/* Feild Layout */
+.field {
+    padding: 0.5em 0;
+}
+.field .field-label {
+    font-size: 1.367em;
+    font-weight: 400;
+    line-height: inherit;
+    margin: 0;
+}
+.field-label-above .field-label {
+  border-bottom: 1px solid #000;
+}
+article .tags, .article-content .field-type-taxonomy-term-reference {
+    border: none;
+    display: block;
+    font-style: normal;
+    margin: 0;
+    padding: 0.5em 0;
+}
+article .tags .field-label, .article-content .field-type-taxonomy-term-reference h2.field-label {
+    display: inline;
+    font-size: 1.367em;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Taxonomy Tags */
+.article .field-type-taxonomy-term-reference ul.field-items li a {
+  display: inline-block;
+  font-size: 0.857em;
+  padding: 0.5em 1em;
+  white-space: nowrap;
+}
+.article .field-type-taxonomy-term-reference ul.field-items li a,
+.article .field-type-taxonomy-term-reference ul.field-items li a:visited {
+    background-color: #E7E5E3;
+    color: #100100;
+}
+.article .field-type-taxonomy-term-reference ul.field-items li a:hover,
+.article .field-type-taxonomy-term-reference ul.field-items li a:focus,
+.article .field-type-taxonomy-term-reference ul.field-items li a:active {
+  background-color: #d7d5d3;
+  color: #100101;
+}
