@@ -106,18 +106,28 @@ function goodmantheme_form_element($variables) {
   return $output;
 }
 
-function goodman_form_alter(&$form, &$form_state, $form_id) {
-  $print = '<pre>' . print_r($form, TRUE) . '</pre>';
-  if (module_exists('devel')) {
-    dsm($form_id); // print form ID to messages
+function goodmantheme_text_format_wrapper($variables) {
+  $element = $variables['element'];
+  $element['#title_display'] = 'none';
+  $output = '<div class="text-format-wrapper">';
+  $output .= ' ' . theme('form_element_label', $variables);
+  if (!empty($element['#description'])) {
+    $output .= '<div class="description">' . $element['#description'] . '</div>';
   }
-  else {
-    drupal_set_message($form_id); // print form ID to messages
-  }
-  if (module_exists('devel')) {
-    dsm($form); // pretty print array using Krumo to messages
-  }
-  else {
-    drupal_set_message($print);  // print array to messages
-  }
+  $output .= $element['#children'];
+  $output .= "</div>\n";
+
+  return $output;
 }
+
+function [theme_name]_form_comment_form_alter(&$form, &$form_state, $form_id)
+  {
+    $form['comment_body']['#after_build'][] = 'remove_tips';
+  }
+ 
+  function remove_tips(&$form)
+  {
+    unset($form['und'][0]['format']['guidelines']);
+    unset($form['und'][0]['format']['help']);
+    return $form;
+  }

@@ -64,3 +64,21 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
   background-color: #d7d5d3;
   color: #100101;
 }
+
+.text-format-wrapper {
+  margin-bottom: 1.4em;
+}
+.text-format-wrapper .form-item label {
+  display: none;
+}
+
+.text-format-wrapper label {
+  font-size: 1.077em;
+  }
+.description li {
+  margin-left: 1em;
+  }
+
+.filter-wrapper {
+  display: none;
+  }
