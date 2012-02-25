@@ -119,15 +119,3 @@ function goodmantheme_text_format_wrapper($variables) {
 
   return $output;
 }
-
-function [theme_name]_form_comment_form_alter(&$form, &$form_state, $form_id)
-  {
-    $form['comment_body']['#after_build'][] = 'remove_tips';
-  }
- 
-  function remove_tips(&$form)
-  {
-    unset($form['und'][0]['format']['guidelines']);
-    unset($form['und'][0]['format']['help']);
-    return $form;
-  }
