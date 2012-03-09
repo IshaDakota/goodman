@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Camp Review Form Content feature.
+ */
+
+include_once('camp_review_form_content.features.inc');
