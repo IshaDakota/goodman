@@ -82,3 +82,7 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
 .filter-wrapper {
   display: none;
   }
+  
+  #logo {
+    float: left;
+  }
