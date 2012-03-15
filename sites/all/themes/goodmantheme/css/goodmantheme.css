@@ -86,3 +86,6 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
   #logo {
     float: left;
   }
+#branding {
+  width: 70%;
+}
