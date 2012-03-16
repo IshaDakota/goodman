@@ -51,6 +51,7 @@ article .field-type-taxonomy-term-reference ul.field-items li a {
   display: inline-block;
   font-size: 0.857em;
   padding: 0.5em 1em;
+  margin: 0.2em 0;
   white-space: nowrap;
 }
 article .field-type-taxonomy-term-reference ul.field-items li a,
@@ -88,4 +89,12 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
   }
 #branding {
   width: 70%;
+}
+
+.field-type-image figure {
+  display: inline-block;
+}
+
+.field-type-text-long ul li {
+  margin: 0 0 0 1.8em;
 }
