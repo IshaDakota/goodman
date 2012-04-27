@@ -125,7 +125,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -195,7 +195,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '11',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -261,7 +261,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -331,7 +331,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '14',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -470,7 +470,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '17',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -536,7 +536,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 18,
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -741,7 +741,7 @@ function curriculum_content_field_default_fields() {
             'image_style' => 'thumbnail',
           ),
           'type' => 'image',
-          'weight' => '16',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1215,7 +1215,7 @@ function curriculum_content_field_default_fields() {
   $fields['node-curriculum_content-field_subjects'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_subjects',
@@ -1256,7 +1256,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 19,
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
