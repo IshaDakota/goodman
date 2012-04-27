@@ -124,6 +124,29 @@ function curriculum_content_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'subjects' => array(
+      'name' => 'Subjects',
+      'machine_name' => 'subjects',
+      'description' => 'Curricular subjects from the "Taxonomy of Knowledge"',
+      'hierarchy' => '0',
+      'module' => 'taxonomy',
+      'weight' => '0',
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'themes' => array(
       'name' => 'Themes',
       'machine_name' => 'themes',

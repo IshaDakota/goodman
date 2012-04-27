@@ -149,7 +149,7 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '14',
+        'weight' => '16',
       ),
     ),
   );
@@ -219,7 +219,7 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '13',
+        'weight' => '15',
       ),
     ),
   );
@@ -285,7 +285,7 @@ function curriculum_content_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '17',
+        'weight' => '18',
       ),
     ),
   );
@@ -355,7 +355,7 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '16',
+        'weight' => '17',
       ),
     ),
   );
@@ -494,7 +494,73 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '19',
+        'weight' => '20',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-curriculum_content-field_background'
+  $fields['node-curriculum_content-field_background'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_background',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'curriculum_content',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Material knowledge for staff suggested or required for program implantation.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 18,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_background',
+      'label' => 'Background Information',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '13',
       ),
     ),
   );
@@ -714,7 +780,7 @@ function curriculum_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '18',
+        'weight' => '19',
       ),
     ),
   );
@@ -1145,6 +1211,81 @@ function curriculum_content_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-curriculum_content-field_subjects'
+  $fields['node-curriculum_content-field_subjects'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_subjects',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'subjects',
+            'parent' => '0',
+          ),
+        ),
+        'options_list_callback' => 'content_taxonomy_allowed_values',
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'curriculum_content',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 19,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_subjects',
+      'label' => 'Curricular Subjects',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'autocomplete_deluxe',
+        'settings' => array(
+          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+          'content_taxonomy_autocomplete_new_terms' => 'allow',
+          'size' => '60',
+        ),
+        'type' => 'autocomplete_deluxe_taxonomy',
+        'weight' => '14',
+      ),
+    ),
+  );
+
   // Exported field: 'node-curriculum_content-field_themes_narative'
   $fields['node-curriculum_content-field_themes_narative'] = array(
     'field_config' => array(
@@ -1234,8 +1375,10 @@ function curriculum_content_field_default_fields() {
   t('Activity Wrap-Up');
   t('Age of Campers');
   t('Attribution');
+  t('Background Information');
   t('Briefly describe the key connections to the above curriculum themes, which may be helpful for the Educator to understand while preparing this activity.');
   t('Check all that apply.');
+  t('Curricular Subjects');
   t('Curriculum Themes');
   t('Describe how the leader can vary this activity/learning for various ages, genders, or size of groups.');
   t('Description');
@@ -1245,6 +1388,7 @@ function curriculum_content_field_default_fields() {
   t('Is there a gender in mind when designing this program');
   t('Israel & Me');
   t('Learning Objectives');
+  t('Material knowledge for staff suggested or required for program implantation.');
   t('Materials Required');
   t('Number of Campers');
   t('Physical Space');
