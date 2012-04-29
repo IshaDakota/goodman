@@ -1,0 +1,3 @@
+[submodule "sites/all/modules/flexslider"]
+path = sites/all/modules/flexslider
+url = http://git.drupal.org/project/flexslider.git
