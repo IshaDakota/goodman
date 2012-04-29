@@ -98,3 +98,65 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
 .field-type-text-long ul li {
   margin: 0 0 0 1.8em;
 }
+
+.view-display-id-frontpage_slider_block {
+
+}
+
+.view-display-id-frontpage_slider_block .flexslider {
+  border: 10px solid #EFEDEA;
+}
+
+.view-display-id-frontpage_slider_block .flex-nav-container {
+    margin-bottom: 0;
+}
+
+.view-display-id-frontpage_slider_block .flex-direction-nav li .next {
+    background-position: -52px 0;
+    right: -36px;
+}
+
+.view-display-id-frontpage_slider_block .flex-direction-nav li .prev {
+    left: -16px;
+}
+
+#block-block-2 {
+  float: right;
+  width: 40%;
+  clear: none;
+  display: inline-block;
+}
+
+#block-views-80df5bfa2e8b5898d1fe7884b30364a3{
+  float: left;
+  width: 50%;
+}
+
+.region-highlighted {
+  background-color: #E1DFDC;
+  margin: 0 0 3em;
+  padding: 2em 0;
+  box-shadow: 0px 3px 20px 2px #7F7F7F;
+}
+
+.region-highlighted:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+#block-block-2 ul {
+  list-style: none;
+}
+
+#block-block-2 ul li,
+#block-block-2 p {
+  margin: .7em 0 0 0;
+  font-size: 1.2em;
+}
+
+#block-block-2 input.form-text, select[multiple="multiple"] {
+width: 75%;
+}
