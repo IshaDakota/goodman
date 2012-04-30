@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Curriculum Sorts feature.
+ */
+
+include_once 'curriculum_sorts.features.inc';

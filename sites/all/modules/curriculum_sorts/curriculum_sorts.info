@@ -1,0 +1,11 @@
+name = Curriculum Sorts
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = curriculum_sorts
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = aggregation
+features[views_view][] = sorted_content

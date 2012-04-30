@@ -157,6 +157,10 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
   font-size: 1.2em;
 }
 
-#block-block-2 input.form-text, select[multiple="multiple"] {
+#block-block-2 input.form-text {
 width: 75%;
+}
+
+#block-block-2 a, #block-block-2 a:visited {
+  color: #333333;
 }
