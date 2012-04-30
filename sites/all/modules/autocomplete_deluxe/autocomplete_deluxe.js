@@ -4,6 +4,8 @@
  * Converts textfield to a autocomplete deluxe widget.
  */
 
+
+
 (function($) {
   Drupal.autocomplete_deluxe = Drupal.autocomplete_deluxe || {};
 
@@ -71,7 +73,7 @@
     // Override enter keypress for the form, but only when the input hasn't
     // the focus and it isn\t empty.
     $('form').keypress(function(event) {
-      if (event.keyCode == 13 && instance.hasFocus && instance.jqObject.val() !== "") return false;
+      if (instance.multiple && event.keyCode == 13 && instance.hasFocus && instance.jqObject.val() !== "") return false;
     });
 
     // Event handlers.
@@ -157,7 +159,7 @@
       instance.source.keypress(event);
     });
     this.jqObject.keyup(function(event) {
-      if (instance.multiple && event.which == 188 || event.which == 13) {
+      if (instance.multiple && (event.which == 188 || event.which == 13)) {
         instance.jqObject.val('');
         instance.close();
       }
@@ -249,18 +251,19 @@
    * Handles value elements for multiple entries.
    */
   Drupal.autocomplete_deluxe.value = function(value, source) {
-    this.removeLink = $('<span class="autocomplete-deluxe-value-delete">&nbsp;</span>')
-    this.span = $('<span class="autocomplete-deluxe-value ui-corner-all ui-button ui-state-default">' + value + '</span>');
+    this.removeLink = $('<span class="autocomplete-deluxe-value-delete">&nbsp;</span>');
+    this.span = $('<span class="autocomplete-deluxe-value ui-corner-all ui-button ui-state-default"></span>');
     this.value = value;
     this.source = source;
     source.container.append(this.span);
+    this.span.text(value);
     this.span.append(this.removeLink);
 
     var object = this;
 
     this.removeLink.click(function(){
       object.span.remove();
-      object.source.removeValue(object.value)
+      object.source.removeValue(object.value);
     });
   };
 
@@ -287,15 +290,17 @@
     else {
       // Create a new data array, so we can keep our original data clean
       // (without <strong> tags).
-      var newData = new Array();
       var regex = new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + term + ")(?![^<>]*>)(?![^&;]+;)", "gi");
-      for ( var i in data) {
+      var newData = new Array();
+
+      for (var i=0; i<data.length; i++) {
         var nterm = data[i].label.replace(regex, "<strong>$1</strong>");
         newData.push({
           label: nterm,
           value: data[i].value
         });
       }
+
       return newData;
     }
   };
@@ -345,7 +350,7 @@
    * Keypress event function.
    */
   Drupal.autocomplete_deluxe.source.prototype.keypress = function(event) {
-    if (this.multiple && event.which == 44 || event.which == 13) {
+    if (this.multiple && (event.which == 44 || event.which == 13)) {
       var val = this.autocomplete.jqObject.val();
       if (val != '') {
         this.addValue(val);
@@ -430,7 +435,7 @@
   Drupal.autocomplete_deluxe.listSource.prototype.select = function(input, ui) {
     input.value = ui.item.label;
     if (!this.multiple) {
-      this.selectbox.children('option:contains("' + input.value + '")').attr("selected", true);
+      this.selectbox.children('option[value="' + input.value + '"]').attr("selected", true);
     }
   };
 
@@ -440,7 +445,7 @@
   Drupal.autocomplete_deluxe.listSource.prototype.addValue = function(value) {
     for (var i=0; i < this.list.length; i++) {
       if (value == this.list[i].label) {
-        this.selectbox.children('option:contains("' + value + '")').attr("selected", true);
+        this.selectbox.children('option[value="' + value + '"]').attr("selected", true);
         new Drupal.autocomplete_deluxe.value(value, this);
         this.list.splice(i, 1);
       }
@@ -451,10 +456,10 @@
    * Overrides the remove item event function.
    */
   Drupal.autocomplete_deluxe.listSource.prototype.removeValue = function(value) {
-    this.selectbox.children('option:contains("' + value + '")').attr("selected", false);
+    this.selectbox.children('option[value="' + value + '"]').attr("selected", false);
     this.list.push({
       label: $.trim(value),
-      value: this.selectbox.children('option:contains("' + value + '")').val()
+      value: this.selectbox.children('option[value="' + value + '"]').val()
     });
     this.list.sort(Drupal.autocomplete_deluxe.listSource. sortList);
   };
@@ -501,6 +506,22 @@
   };
 
   /**
+   * Filters the selected values out of the ajax list.
+   */
+  Drupal.autocomplete_deluxe.ajaxSource.prototype.filterValues = function(request, terms) {
+    var instance = this;
+    var terms = $(this.cache[request.term]).filter(function(val) {
+      for (var i in instance.values) {
+        if (instance.values[i] == instance.cache[request.term][val].value) {
+          return false;
+        }
+      }
+      return true;
+    });
+    return terms;
+  }
+
+  /**
    * Will be called by the JQuery autocomplete source function to retrieve the
    * data.
    */
@@ -508,7 +529,7 @@
     var instance = this;
     if (request.term in this.cache) {
       var instance = this;
-      var terms = this.cache[request.term].filter(function(val) {
+      var terms = $(this.cache[request.term]).filter(function(val) {
         for (var i in instance.values) {
           if (instance.values[i] == val.value) {
             return false;
@@ -516,20 +537,22 @@
         }
         return true;
       });
-      instance.response(request, response, (terms));
+      terms = this.filterValues(request, terms);
+      this.response(request, response, (terms));
       return;
     }
     $.ajax({
       url: this.uri + '/' + request.term,
       dataType: this.dataType,
       success: function(data) {
-        instance.response(request, response, instance.success(data, request));
+        terms = instance.filterValues(request, instance.success(data, request));
+        instance.response(request, response, terms);
       }
     });
   };
 
   /**
-   * Success function for the autocomplete object.
+   * AJAX success function, which stores the returned elements into the cache.
    */
   Drupal.autocomplete_deluxe.ajaxSource.prototype.success = function(data, request) {
     var instance = this;
@@ -541,15 +564,7 @@
       });
     });
 
-    var terms = this.cache[request.term].filter(function(val) {
-      for (var i in instance.values) {
-        if (instance.values[i] == val.value) {
-          return false;
-        }
-      }
-      return true;
-    });
-    return terms;
+    return this.cache[request.term];
   };
 
   /**
@@ -560,7 +575,7 @@
   };
 
   /**
-   * Overrides the  add new value function.
+   * Overrides the add new value function.
    */
   Drupal.autocomplete_deluxe.ajaxSource.prototype.addValue = function(value) {
     new Drupal.autocomplete_deluxe.value(value, this);
