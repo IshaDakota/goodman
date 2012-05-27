@@ -302,8 +302,8 @@ function camp_review_form_content_field_default_fields() {
           'sort' => array(
             'direction' => 'ASC',
             'field' => 'body:value',
-            'property' => 'nid',
-            'type' => 'none',
+            'property' => 'title',
+            'type' => 'property',
           ),
           'target_bundles' => array(
             'curriculum_content' => 'curriculum_content',
