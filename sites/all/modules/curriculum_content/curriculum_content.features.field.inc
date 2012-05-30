@@ -494,7 +494,7 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '20',
+        'weight' => '22',
       ),
     ),
   );
@@ -735,12 +735,16 @@ function curriculum_content_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'image',
+          'module' => 'colorbox',
           'settings' => array(
-            'image_link' => 'file',
-            'image_style' => 'thumbnail',
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => '',
+            'colorbox_node_style' => 'thumbnail',
           ),
-          'type' => 'image',
+          'type' => 'colorbox',
           'weight' => '17',
         ),
         'teaser' => array(
@@ -752,7 +756,7 @@ function curriculum_content_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_image',
-      'label' => 'Supporting Image',
+      'label' => 'Supporting Images',
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
@@ -773,6 +777,7 @@ function curriculum_content_field_default_fields() {
             'public' => 'public',
           ),
           'allowed_types' => array(
+            0 => 0,
             'audio' => 0,
             'default' => 0,
             'image' => 'image',
@@ -1287,6 +1292,87 @@ function curriculum_content_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-curriculum_content-field_supporting_materials'
+  $fields['node-curriculum_content-field_supporting_materials'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_supporting_materials',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'curriculum_content',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '19',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_supporting_materials',
+      'label' => 'Supporting Materials',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'pdf doc docx',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'allowed_schemes' => array(
+            'public' => 'public',
+          ),
+          'allowed_types' => array(
+            'audio' => 0,
+            'default' => 0,
+            'image' => 'image',
+            'video' => 0,
+          ),
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '20',
+      ),
+    ),
+  );
+
   // Exported field: 'node-curriculum_content-field_themes_narative'
   $fields['node-curriculum_content-field_themes_narative'] = array(
     'field_config' => array(
@@ -1397,7 +1483,8 @@ function curriculum_content_field_default_fields() {
   t('Please list 1-3 learning objectives we want the campers to take away from this activity (click "add another item" for each discrete learning objective).');
   t('Program Duration');
   t('Provide a description for this activity that will be used to reference it in lists and views on the site.');
-  t('Supporting Image');
+  t('Supporting Images');
+  t('Supporting Materials');
   t('Themes Narrative');
   t('Variations');
   t('choose appropriate camp setting for maximum success (multiple selections allowed).');
