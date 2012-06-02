@@ -125,7 +125,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '14',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -195,7 +195,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '13',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -261,7 +261,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '16',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -331,7 +331,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -536,7 +536,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '11',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -777,8 +777,8 @@ function curriculum_content_field_default_fields() {
             'public' => 'public',
           ),
           'allowed_types' => array(
-            0 => 0,
             'audio' => 0,
+            0 => 0,
             'default' => 0,
             'image' => 'image',
             'video' => 0,
@@ -1262,7 +1262,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '12',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1346,7 +1346,7 @@ function curriculum_content_field_default_fields() {
       'label' => 'Supporting Materials',
       'required' => 0,
       'settings' => array(
-        'description_field' => 0,
+        'description_field' => 1,
         'file_directory' => '',
         'file_extensions' => 'pdf doc docx',
         'max_filesize' => '',
@@ -1354,20 +1354,18 @@ function curriculum_content_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'file',
+        'module' => 'media',
         'settings' => array(
           'allowed_schemes' => array(
-            'public' => 'public',
+            0 => 'public',
+            1 => 'private',
           ),
           'allowed_types' => array(
-            'audio' => 0,
-            'default' => 0,
-            'image' => 'image',
-            'video' => 0,
+            0 => 'image',
           ),
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'file_generic',
+        'type' => 'media_generic',
         'weight' => '20',
       ),
     ),
