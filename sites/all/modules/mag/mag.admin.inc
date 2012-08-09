@@ -11,7 +11,7 @@ function mag_settings_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Path for generated files'),
     '#description' => t('Path where generated files are stored. This can include a file scheme, e.g. public://mobile or s3://mobile.'),
-    '#default_value' => variable_get('mag_export_path', 'sites/all/export'),
+    '#default_value' => variable_get('mag_export_path', 'public://mobile_app'),
     '#size' => 60,
     '#required' => TRUE,
   );
@@ -34,11 +34,27 @@ function mag_settings_form($form, &$form_state) {
 
   $form['mag_export_menu'] = array(
     '#type' => 'select',
-    '#title' => t('Menu to Export'),
+    '#title' => t('Menu to export'),
     '#description' => t('The menu used for exporting the nodes.'),
     '#options' => menu_get_menus(TRUE),
     '#required' => TRUE,
     '#default_value' => variable_get('mag_export_menu', 'main-menu'),
+  );
+
+  $themes = array('default' => t('Default'));
+  $options = list_themes();
+  foreach ($options as $name => $attr) {
+    if ($attr->status) {
+      $themes[$name] = $attr->info['name'];
+    }
+  }
+  $form['mag_mobile_theme'] = array(
+    '#type' => 'select',
+    '#title' => 'Mobile theme',
+    '#description' => t('The theme to use when generating mobile app.'),
+    '#options' => $themes,
+    '#required' => TRUE,
+    '#default_value' => variable_get('mag_mobile_theme', 'default'),
   );
 
   $form['mag_http_request'] = array(

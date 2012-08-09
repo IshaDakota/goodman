@@ -7,7 +7,7 @@
  */
 
 define('MAG_MAGIC_PATH', 'http://MAG-EXPORT');
-define('MAG_EXPORT_PATH', variable_get('mag_export_path', 'sites/all/export/www-mag'));
+define('MAG_EXPORT_PATH', variable_get('mag_export_path', 'public://mobile_app'));
 define('MAG_REGEXP', variable_get('mag_regexp', '/^.*\.(jpg|png|gif|js|css)/'));
 define('MAG_EXPORT_MENU', variable_get('mag_export_menu', 'main-menu'));
 define('MAG_OFFLINE_ALIAS', variable_get('mag_offline_alias', 'offline'));
@@ -63,6 +63,9 @@ function mag_preprocess_page(&$variables) {
   }                        
 }
 
+/**
+ * Implements hook_init().
+ */
 function mag_init() {
   $_GET['mag_q'] = $_GET['q'];
 }
@@ -173,7 +176,7 @@ function mag_exit() {
     }
     $file = url($_GET['mag_q']);
     $file = str_replace(MAG_MAGIC_PATH, '', $file);
-    $pattern = '.'; // actually count slashes
+    $pattern = '.' . str_repeat('/..', substr_count($_GET['mag_q'], '/'));
 
     $page_data = ob_get_contents();
     $page_data = str_replace(MAG_MAGIC_PATH, $pattern, $page_data);
@@ -272,5 +275,17 @@ function mag_file_url_alter(&$original_uri) {
       $files[dirname($uri)] = TRUE;
     }
     $files[$uri] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_custom_theme().
+ */
+function mag_custom_theme() {
+  if (mag_status_is_enabled()) {
+  $theme = variable_get('mag_mobile_theme', 'default');
+    if ($theme != 'default') {
+      return $theme;
+    }
   }
 }
