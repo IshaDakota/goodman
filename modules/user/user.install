@@ -911,21 +911,3 @@ function user_update_7018() {
 /**
  * @} End of "addtogroup updates-7.x-extra".
  */
-
-/**
- * @addtogroup updates-7.x-extra
- * @{
- */
-
-/**
- * Ensure there is an index on {users}.picture.
- */
-function user_update_7018() {
-  if (!db_index_exists('users', 'picture')) {
-    db_add_index('users', 'picture', array('picture'));
-  }
-}
-
-/**
- * @} End of "addtogroup updates-7.x-extra"
- */
