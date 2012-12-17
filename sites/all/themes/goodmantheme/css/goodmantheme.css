@@ -40,7 +40,9 @@ article .tags .field-label, .article-content .field-type-taxonomy-term-reference
   font-weight: normal;
   margin: 0;
 }
-article .field-name-field-learning-objectives .field-item {
+article .field-name-field-learning-objectives .field-item,
+article .field-name-field-central-ideas .field-item,
+article .field-name-field-core-learnings .field-item {
   margin: .2em 0 0;
   padding: 0 0 0 3em;
   background: url('../images/icon_bullet.png') 1.25em .24em no-repeat;
