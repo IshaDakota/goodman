@@ -104,6 +104,7 @@ function resource_library_views_default_views() {
   $handler->display->display_options['filters']['uid']['field'] = 'uid';
   $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
   $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
   $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
   $handler->display->display_options['filters']['uid']['expose']['label'] = 'Uploader or Instructor';
@@ -168,14 +169,13 @@ function resource_library_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Field: Resource File */
-  $handler->display->display_options['fields']['field_resource_file']['id'] = 'field_resource_file';
-  $handler->display->display_options['fields']['field_resource_file']['table'] = 'field_data_field_resource_file';
-  $handler->display->display_options['fields']['field_resource_file']['field'] = 'field_resource_file';
-  $handler->display->display_options['fields']['field_resource_file']['label'] = 'File';
-  $handler->display->display_options['fields']['field_resource_file']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_resource_file']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_resource_file']['delta_offset'] = '0';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = 'Description';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   /* Field: Content: Resource Tags */
   $handler->display->display_options['fields']['field_resource_tags']['id'] = 'field_resource_tags';
   $handler->display->display_options['fields']['field_resource_tags']['table'] = 'field_data_field_resource_tags';
@@ -183,6 +183,26 @@ function resource_library_views_default_views() {
   $handler->display->display_options['fields']['field_resource_tags']['label'] = 'Tags';
   $handler->display->display_options['fields']['field_resource_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_resource_tags']['delta_offset'] = '0';
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Uploaded';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+  /* Field: Field: Resource File */
+  $handler->display->display_options['fields']['field_resource_file']['id'] = 'field_resource_file';
+  $handler->display->display_options['fields']['field_resource_file']['table'] = 'field_data_field_resource_file';
+  $handler->display->display_options['fields']['field_resource_file']['field'] = 'field_resource_file';
+  $handler->display->display_options['fields']['field_resource_file']['label'] = 'File';
+  $handler->display->display_options['fields']['field_resource_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_file']['alter']['text'] = 'Download';
+  $handler->display->display_options['fields']['field_resource_file']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_file']['alter']['path'] = '[field_resource_file] ';
+  $handler->display->display_options['fields']['field_resource_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_resource_file']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_resource_file']['delta_offset'] = '0';
   $handler->display->display_options['path'] = 'resource-library';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Resources';
