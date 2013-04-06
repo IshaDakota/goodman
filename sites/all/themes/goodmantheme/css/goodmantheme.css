@@ -314,12 +314,12 @@ width: 75%;
     margin: 0 3px 0 0;
 }
 
-.field-name-field-catalogue-image {
+.article-content .field-name-field-catalogue-image {
     display: inline;
     float: left;
 }
 
-.field-name-body {
+.article-content .field-name-body {
     display: inline;
     float: left;
 }
