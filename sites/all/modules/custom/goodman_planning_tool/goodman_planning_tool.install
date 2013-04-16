@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Goodman Planning Tool module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+
+function goodman_planning_tool_schema() {
+  $schema['gpt'] = array(
+   'description' => 'A table that holds the data collected from the Goodman
+   Planning Tool',
+   'fields' => array (
+      'uid' => array(
+        'default'       => 0,
+        'description'   => 'The {users}.uid that is has entered data.',
+        'type'          => 'int',
+      ),
+      'step1_q1' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),      
+      'step1_q2' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step1_q3' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step2_q1' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),      
+      'step2_q2' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step2_q3' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step3_q1' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),      
+      'step3_q2' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step3_q3' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step4_q1' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),      
+      'step4_q2' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+      'step4_q3' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
+    ),
+    'primary key'       => array('uid'),
+  );
+
+  return $schema;
+
+}

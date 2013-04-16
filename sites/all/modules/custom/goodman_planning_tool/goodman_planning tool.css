@@ -1,0 +1,34 @@
+/* css for Personal Narrative Badge Module */
+
+.next-step {
+  margin-top: 2em;
+  float: right;
+}
+
+.next-step a {
+  padding: 1em;
+  background: #EDEDE7;
+  border-color: #E7E7E7;
+}
+
+.next-step a:active,
+.next-step a:hover {
+  padding: 1em;
+  background: #cbcbc5;
+  border-color: #E7E7E7;
+  text-decoration: none;
+}
+
+#palmer {
+  float: right;
+}
+
+#alef-bet {
+  float: left;
+  margin-right: 10px;
+}
+
+#badge {
+  float: right;
+  margin-left: 20px;
+}

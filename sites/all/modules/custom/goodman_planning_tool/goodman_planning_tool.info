@@ -1,0 +1,6 @@
+name = Goodman Program Planning Tool
+description = "Tool for picking programs in the Goodman Initiative"
+stylesheets[all][] = goodman_planning_tool.css
+dependencies[] = achievements
+package = Achievements
+core = 7.x

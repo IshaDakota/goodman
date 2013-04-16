@@ -1,0 +1,397 @@
+<?php
+/**
+ * @file
+ * Goodman Planning Tool Module.
+ *
+ * This module extends the achievements module and provides a badge that prototypes
+ * some badging principles for the iAcademy project.
+ */
+
+/**
+* Implements hook_permission().
+*/
+function goodman_planning_tool_permission() {
+  $permission = array(
+    'access planning tool' => array(
+      'title' => t('Access planning tool'),
+      'description' => t('Allow users to access the goodman planning tool'),
+    ),
+  );
+  
+  return $permission;
+}
+
+
+/**
+ * Implements hook_menu().
+ */
+function goodman_planning_tool_menu() {
+  $items = array(
+    'program-planning-tool' => array(
+      'title' => 'Program Planning Tool',
+      'description' => 'Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-1' => array(
+      'title' => 'Step One: Choosing a Thematic Approach',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step1_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-1/to-prepare' => array(
+      'title' => 'To Prepare',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step1_prepare_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),    
+    'program-planning-tool/step-1/to-consider' => array(
+      'title' => 'To Consider',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step1_consider_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-1/moving-forward' => array(
+      'title' => 'Moving Forward',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step1_forward_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-2' => array(
+      'title' => 'Step Two: Identifying Settings and Resources',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step2_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-2/to-prepare' => array(
+      'title' => 'To Prepare',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step2_prepare_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),    
+    'program-planning-tool/step-2/to-consider' => array(
+      'title' => 'To Consider',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step2_consider_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-2/moving-forward' => array(
+      'title' => 'Moving Forward',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step2_forward_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-3' => array(
+      'title' => 'Step Three: Defining Your Audience',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step3_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access callback' => TRUE,
+    ),
+    'program-planning-tool/step-3/to-prepare' => array(
+      'title' => 'To Prepare',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step3_prepare_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access callback' => TRUE,
+    ),    
+    'program-planning-tool/step-3/to-consider' => array(
+      'title' => 'To Consider',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step3_consider_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-3/moving-forward' => array(
+      'title' => 'Moving Forward',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step3_forward_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),    
+    'program-planning-tool/step-4' => array(
+      'title' => 'Step Four: Choosing Programs & Managing Scope',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step4_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-4/to-prepare' => array(
+      'title' => 'To Prepare',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step4_prepare_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),    
+    'program-planning-tool/step-4/to-consider' => array(
+      'title' => 'To Consider',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step4_consider_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),
+    'program-planning-tool/step-4/moving-forward' => array(
+      'title' => 'Moving Forward',
+      'description' => 'Page for Goodman Initiative Program Planning Tool.',
+      'page callback' => 'goodman_planning_tool_step4_forward_page',
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
+    ),    
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_achievements_info().
+ */
+function goodman_planning_tool_achievements_info() {
+  $achievements = array(
+    'planning-tool' => array(
+      'title' => t('Planning Tool'),
+      'achievements' => array(
+        'step-1' => array(
+          'title' => t('Completed Step One'),
+          'description' => t("Choosing a Thematic Approach"),
+          'storage' => 'planning-tool',
+          'points' => 10,
+        ),
+        'step-2' => array(
+          'title' => t('Completed Step Two'),
+          'description' => t("Identifying Settings and Resources"),
+          'storage' => 'planning-tool',
+          'points' => 10,
+        ),
+        'step-3' => array(
+          'title' => t('Completed Step Three'),
+          'description' => t("Defining Your Audience"),
+          'storage' => 'planning-tool',
+          'points' => 10,
+        ),
+        'step-4' => array(
+          'title' => t('Completed Step Four'),
+          'description' => t("Choosing Programs & Managing Scope"),
+          'storage' => 'planning-tool',
+          'points' => 10,
+        ),
+        'complete' => array(
+          'title' => t('Completed Planning Tool'),
+          'description' => t("Ready to program!"),
+          'storage' => 'planning-tool',
+          'points' => 0,
+        ),
+      ),
+    ),
+  );
+  return $achievements;
+}
+
+function goodman_planning_tool_step1_form($form, $form_state) {
+  $form = array();
+
+  // fetch the taxonomy terms inside the themes vocabulary
+  $taxonomyQuery = new EntityFieldQuery();
+  $taxonomyTerms = $taxonomyQuery->entityCondition('entity_type', 'taxonomy_term')
+    ->propertyCondition('vid', 7) //change 2 to any vocabulary ID
+    ->propertyOrderBy('weight')
+    ->execute();
+  foreach($taxonomyTerms['taxonomy_term'] as $term) {
+    $relevantTerms[] = $term->tid;
+  }
+  
+  dprint_r($relevantTerms);
+
+  // $relevantTerms will now have the terms of your target vocabulary
+  $form['question-1'] = array(
+    '#type' => 'select',
+    '#title' => t('We have chosen the following theme(s) for this summer at
+      camp'),
+    '#options' => $relevantTerms, // This is the bit that was missing
+  );
+  $form['question-2'] = array(
+    '#type' => 'textarea',
+    '#title' => t('We chose this theme because:'),
+    '#required' => TRUE,
+  );
+  $form['question-3'] = array(
+    '#type' => 'textarea',
+    '#title' => t('We already do programming at camp around a theme like this
+      in the following ways:'),
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  
+  return $form;
+}
+
+function goodman_planning_tool_step1_form_submit($form, &$form_state) {
+   global $user;
+   
+  //even though acheivement_unlocks checks, we need to check so that
+  //storage is not invoked
+  if (!achievements_unlocked_already('step-1', $user->uid)) {
+    //assign the badge-specific points
+    $current_count = achievements_storage_get('planning-tool', $user->uid) + 10;
+    achievements_storage_set('planning-tool', $current_count, $user->uid);
+    
+    achievements_unlocked('step-1', $user->uid); //unlock the achivement
+  }
+  
+  $form_state['redirect'] = 'program-planning-tool';
+}
+
+function goodman_planning_tool_step2_form($form, $form_state) {
+  $form = array();
+  
+  $form['question-1'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Israel exists very strongly in these areas at camp:'),
+    '#required' => TRUE,
+  );
+  $form['question-2'] = array(
+    '#type' => 'textarea',
+    '#title' => t('These areas are "fertile ground" for developing Israel
+      programs:'),
+    '#required' => TRUE,
+  );
+  $form['question-3'] = array(
+    '#type' => 'textarea',
+    '#title' => t('We plan to develop or enhance programming in the following
+      areas:'),
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  
+  return $form;
+}
+
+function goodman_planning_tool_step2_form_submit($form, &$form_state) {
+   global $user;
+   
+  //even though acheivement_unlocks checks, we need to check so that
+  //storage is not invoked
+  if (!achievements_unlocked_already('step-2', $user->uid)) {
+    //assign the badge-specific points
+    $current_count = achievements_storage_get('planning-tool', $user->uid) + 10;
+    achievements_storage_set('planning-tool', $current_count, $user->uid);
+    
+    achievements_unlocked('step-2', $user->uid); //unlock the achivement
+  }
+  
+  $form_state['redirect'] = 'program-planning-tool';
+}
+
+function goodman_planning_tool_step3_form($form, $form_state) {
+  $form = array();
+  
+  $form['question-1'] = array(
+    '#type' => 'select',
+    '#title' => t('In order to fulfill the Initiative requirements, we must
+      create/adapt this number of new programs:'),
+    '#options' => array (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),
+    '#required' => TRUE,
+  );
+  $form['question-2'] = array(
+    '#type' => 'textarea',
+    '#title' => t('We would like to create/adapt new programming in the
+      following settings:'),
+    '#required' => TRUE,
+  );
+  $form['question-3'] = array(
+    '#type' => 'textarea',
+    '#title' => t('These are the challenges that I may face in implementing
+      this many programs in these areas: '),
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  
+  return $form;
+}
+
+function goodman_planning_tool_step3_form_submit($form, &$form_state) {
+   global $user;
+   
+  //even though acheivement_unlocks checks, we need to check so that
+  //storage is not invoked
+  if (!achievements_unlocked_already('step-3', $user->uid)) {
+    //assign the badge-specific points
+    $current_count = achievements_storage_get('planning-tool', $user->uid) + 10;
+    achievements_storage_set('planning-tool', $current_count, $user->uid);
+    
+    achievements_unlocked('step-3', $user->uid); //unlock the achivement
+  }
+  
+  $form_state['redirect'] = 'program-planning-tool';
+}
+
+function goodman_planning_tool_step4_form($form, $form_state) {
+  $form = array();
+  
+  $form['question-1'] = array(
+    '#type' => 'textarea',
+    '#title' => t('These are the programs that we plan to create/adapt at
+      camp this summer:'),
+    '#required' => TRUE,
+  );
+  $form['question-2'] = array(
+    '#type' => 'textarea',
+    '#title' => t('These are the subjects that our programs will cover:'),
+    '#required' => TRUE,
+  );
+  $form['question-3'] = array(
+    '#type' => 'textarea',
+    '#title' => t('The following programs will require significant adaptation
+      for our camp:'),
+    '#required' => TRUE,
+  );
+  $form['question-4'] = array(
+    '#type' => 'textarea',
+    '#title' => t('The following programs will require little/or no adaptation
+      for our camp:'),
+    '#required' => TRUE,
+  );  
+  $form['question-4'] = array(
+    '#type' => 'textarea',
+    '#title' => t('The following settings will be utilized at camp:'),
+    '#required' => TRUE,
+  );  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  
+  return $form;
+}
+
+function goodman_planning_tool_step4_form_submit($form, &$form_state) {
+   global $user;
+   
+  //even though acheivement_unlocks checks, we need to check so that
+  //storage is not invoked
+  if (!achievements_unlocked_already('step-4', $user->uid)) {
+    //assign the badge-specific points
+    $current_count = achievements_storage_get('planning-tool', $user->uid) + 10;
+    achievements_storage_set('planning-tool', $current_count, $user->uid);
+    
+    achievements_unlocked('step-4', $user->uid); //unlock the achivement
+  }
+    
+  $form_state['redirect'] = 'program-planning-tool';
+}
