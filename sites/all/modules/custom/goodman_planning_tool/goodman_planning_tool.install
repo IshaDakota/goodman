@@ -67,6 +67,10 @@ function goodman_planning_tool_schema() {
         'description'   => 'Data Field for Goodman Planning Tool.',
         'type'          => 'text',
       ),
+      'step4_q3' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),
     ),
     'primary key'       => array('uid'),
   );
