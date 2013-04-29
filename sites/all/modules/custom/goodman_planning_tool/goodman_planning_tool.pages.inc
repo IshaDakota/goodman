@@ -6,37 +6,107 @@
  */
 
 function goodman_planning_tool_page() {
+  global $user;
+  
+  achievements_unlocked_already('step-1', $user->uid) ? 
+    $step1_status = 'quest-achieved': $step1_status = 'quest-unachieved';
+  achievements_unlocked_already('step-2', $user->uid) ? 
+    $step2_status = 'quest-achieved': $step2_status = 'quest-unachieved';
+  achievements_unlocked_already('step-3', $user->uid) ? 
+    $step3_status = 'quest-achieved': $step3_status = 'quest-unachieved';
+  achievements_unlocked_already('step-4', $user->uid) ? 
+    $step4_status = 'quest-achieved': $step4_status = 'quest-unachieved';
+
+    
   $output =  array(
+    'badge_pic' => array(
+      '#theme' => 'image_formatter',
+      '#item' => array(
+        'uri' => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-badge.png',
+        'alt' => 'Parker Palmer Headshot',
+        'title' => 'Parker Palmer,'
+        ),
+      '#prefix' => '<div id="badge-image">',
+      '#suffix' => '</div>',      
+      ),
+    
     'introduction' => array(
       '#type' => 'markup',
       '#markup' => '<p>' . t('
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin adipiscing
-        tortor eget turpis dapibus malesuada a at metus. Sed feugiat, sem ut lacinia
-        gravida, nisl urna rutrum purus, at cursus nisi diam ut libero. Duisdictum
-        aliquam aliquam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Donec sit amet lobortis justo. Aliquam eget enim ut massa
-        elementum bibendum vitae at purus. Donec at est arcu. Etiam posuere dictum
-        aliquam. Sed scelerisque rhoncus est nec convallis. Ut vehicula viverra
-        hendrerit. Praesent tempus, nibh eu laoreet pharetra, nulla sem congue urna,
-        nec pharetra turpis velit sed nisl. Class aptent taciti sociosqu ad litora
-        torquent per conubia nostra, per inceptos himenaeos.'
-      ),
+        The Planning Tool was developed in order to provide a method for GEs
+        to ') . '<b>' . t('choose programs') . '</b>' . t(' for the summer and ') . 
+        '<b>' . t('understand some of the challenges') . '</b>' . t(' they may
+        face in implementation.') . '</p>
+        <p><em>'. t('Each of the four steps to the tool has three sections:') . '</em>
+        <ol>
+        <li><b>' . t('To Prepare: ') . '</b>' . t('Here you will gather resources to which you should
+          have access or questions you should be able to answer on the fly.') . '
+        <li><b>' . t('Questions to Consider: ') . '</b>' . t('These questions may require some more thought or
+                  consultation with other camp staff or your faculty advisor.') . '
+        <li><b>' . t('Moving Forward: ') . '</b>' . t('In this section, you will fill out a worksheet with
+                  specific answers to questions about your program planning. These answers
+                  will be saved so that you can use them as you continue planning.') . '
+        </ol>
+        </p>',
+    ),
+    'the-steps' => array(
+      '#type' => 'markup',
+      '#markup' => '<h2>' . t('The Steps:') . '</h2>',
     ),
     'quest_list' => array(
       '#type' => 'markup',
       '#markup' => '<ul class = "quest-list">
-        <li class = "' . $quest1_status . '">' .
+        <li class = "' . $step1_status . '">' .
           l(t('Step One: Choosing a Thematic Approach'), 'program-planning-tool/step-1') . '</li>
-        <li class = "' . $quest2_status . '">' .
+        <li class = "' . $step2_status . '">' .
           l(t('Step Two: Identifying Settings and Resources'), 'program-planning-tool/step-2') . '</li>
-        <li class = "' . $quest3_status . '">' .
+        <li class = "' . $step3_status . '">' .
           l(t('Step Three: Defining Your Audience'), 'program-planning-tool/step-3') . '</li>
-        <li class = "' . $quest3_status . '">' .
+        <li class = "' . $step4_status . '">' .
           l(t('Step Four: Choosing Programs & Managing Scope'), 'program-planning-tool/step-4') . '</li>
       </ul>',
     ),
+    'intro_pic' => array(
+      '#theme' => 'image_formatter',
+      '#item' => array(
+        'uri' => drupal_get_path('module', 'goodman_planning_tool') . '/images/planning-tool.png',
+        'alt' => 'Parker Palmer Headshot',
+        'title' => 'Parker Palmer,'
+        ),
+      '#prefix' => '<div id="intro-image">',
+      '#suffix' => '</div>',      
+      ),
+    'conclusion' => array(
+      '#type' => 'markup',
+      '#markup' => '<div id="conclusion"><p>' . t('
+        You do not need to finish all four steps at once -- in fact, it will
+        likely be better for you to divide this work over several weeks, and
+        one or two conversations with your faculty advisor. You may also find
+        that you have done some of the work in this tool... that\'s great!
+        Complete the worksheets in order, and use the "questions to consider"
+        as a way to rethink some of your work.') . '</p>
+        <p>' . t('Your progress will be saved both on the list above and in
+        your user profile under ') . l(t('Achievements'), 'user/' .
+        $user->uid .'/achievements') . t('. You will also be able to see
+        your answers to the "moving forward" worksheets in your user profile
+        under ') . l(t('Planning Tool'), 'user/' . $user->uid . '/planning-tool') .
+        t('. Initiative faculty and staff will be able to
+        see this as well.') . '</p></div>',
+    ),
+    'more-info' => array(
+      '#type' => 'markup',
+      '#markup' => '<div id="more-info"><p>' . t('
+        Below, you can find the presentation from the Israel Seminar (Shefayim)
+        used to introduce the planning tool.') . '</p></div>',
+    ),
+    'prezi' => array(
+      '#type' => 'markup',
+      '#markup' => '<div id="prezi">
+      <iframe src="http://prezi.com/embed/b5p1xzall2kh/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="550" height="400" frameBorder="0"></iframe>
+      </div>',
+      ),     
   );
-  
+    
   return $output;
 }
 
@@ -50,6 +120,28 @@ function goodman_planning_tool_step1_page() {
         from the database, how you adapt these programs, and how you might
         rethink programming that you are already doing at camp.') . '</p>',
     ),
+    'note' => array(
+      '#type' => 'markup',
+      '#markup' => '<h3 class="note-header">Note:</h3> 
+        <div class="note-body"> ' . t('The purpose of a thematic approach is to
+        assist in organizing educational programming, not to complicate it. As we
+        discussed at the Israel Seminar, THEMES help us better organize our SUBJECTS, to
+        more fully teach and express our VALUES. The Initiative themes - while
+        specific to Modern Israel History - are broad enough to reflect many of the
+        themes we already teach at camp.') . '</div>',
+      '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
+    ),
+    'intro_pic' => array(
+      '#theme' => 'image_formatter',
+      '#item' => array(
+        'uri' => drupal_get_path('module', 'goodman_planning_tool') . '/images/theme-subjects-values.png',
+        'alt' => 'Themes, Subjects, and Values',
+        'title' => 'Themes Subjects Values,'
+        ),
+      '#prefix' => '<div id="step1-image">',
+      '#suffix' => '</div>',      
+      ),    
     'main_link' => array(
       '#type' => 'markup',
       '#markup' => '<div class="next-step">' .
@@ -69,11 +161,21 @@ function goodman_planning_tool_step1_page() {
 
 function goodman_planning_tool_step1_prepare_page() {
   $output =  array(
+    'note' => array(
+      '#type' => 'markup',
+      '#markup' => '<h3 class="note-header">Note:</h3> 
+        <div class="note-body"> ' . t('If you haven\'t spent much time
+        exploring the database of activities, this would be a good time to
+        start! Links below will organize content by themes, and will open
+        in new windows so that you can keep your place in the tool.') . '</div>',
+      '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
+    ),    
     'prepare-list' => array(
       '#items' => array(
-        t('Read the Initiative themes and reflect on them as they relate to you
+        l(t('Read the Initiative themes'), 'themes-values', array('attributes' => array('target'=>'_blank'))) . t(' and reflect on them as they relate to you
           and your camp.'), 
-        t('Sort the database by themes and browse the programs under each theme.'),
+        l(t('Sort the database by themes'), 'sort/theme', array('attributes' => array('target'=>'_blank'))) . t(' and browse the programs under each theme.'),
         t('Note that many programs do appear under multiple themes.')
       ),
     '#theme' => 'item_list',
@@ -103,6 +205,16 @@ function goodman_planning_tool_step1_prepare_page() {
 
 function goodman_planning_tool_step1_consider_page() {
   $output =  array(
+    'note' => array(
+      '#type' => 'markup',
+      '#markup' => '<h3 class="note-header">Note:</h3> 
+        <div class="note-body"> ' . t('It is important
+        that you consider these questions (and the others in this category) carefully,
+        but that you do not get stuck on them. These questions are supposed to help you
+        consider issues, but should not be "process blockers."') . '</div>',
+      '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
+    ),    
     'cosider-list' => array(
       '#items' => array(
         t('As you explore the themes, which resonate most strongly for your
@@ -145,6 +257,17 @@ function goodman_planning_tool_step1_consider_page() {
 
 function goodman_planning_tool_step1_forward_page() {
   $output =  array(
+    'note' => array(
+      '#type' => 'markup',
+      '#markup' => '<h3 class="note-header">Note:</h3> 
+        <div class="note-body"> ' . t('Your answers on this worksheet will be
+        saved in your user profile under ') . l(t('Planning Tool'), 'user/' .
+        $user->uid . '/planning-tool') .
+        t('. Initiative faculty and staff will be able to
+        see this as well.') . '</div>',
+      '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
+    ),      
     'display_form' => drupal_get_form('goodman_planning_tool_step1_form'),
     'back_link' => array(
       '#type' => 'markup',
@@ -541,5 +664,107 @@ function goodman_planning_tool_step4_forward_page() {
     ),
   );
 
+  return $output;
+}
+
+function goodman_planning_tool_user_page() {
+    global $user; //Get the current user.
+
+  $query_select = db_select('gpt') //Query the database to see of the user has a record.
+  ->fields('gpt')
+  ->condition('uid', $user->uid, '=')
+  ->execute()
+  ->fetchAssoc();
+  
+  $output =  array();
+  
+  if (achievements_unlocked_already('step-1', $user->uid)) {
+    $output['step-1'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-1"><h2>Step #1</h2>
+        <div class="step-question">We have chosen the following theme(s) for this summer at camp:</div>
+        <div class="step-answer">' . $query_select['step1_q1'] . '</div>
+        <div class="step-question">We chose this theme because:</div>
+        <div class="step-answer">' . $query_select['step1_q2'] . '</div>
+        <div class="step-question">We already do programming at camp around a theme like this in the following ways:</div>
+        <div class="step-answer">' . $query_select['step1_q3'] . '</div>
+        </div>',
+    );
+  } else {
+    $output['step-1'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-1"><h2>Step #1</h2>
+        <div class="step-incomplete">Step not yet completed.</div>
+        </div>',
+    );        
+  }
+
+  if (achievements_unlocked_already('step-2', $user->uid)) {  
+    $output['step-2'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-2"><h2>Step #2</h2>
+        <div class="step-question">Israel exists very strongly in these areas at camp:</div>
+        <div class="step-answer">' . $query_select['step2_q1'] . '</div>
+        <div class="step-question">These areas are "fertile ground" for developing Israel programs:</div>
+        <div class="step-answer">' . $query_select['step2_q2'] . '</div>
+        <div class="step-question">We plan to develop or enhance programming in the following areas:</div>
+        <div class="step-answer">' . $query_select['step2_q3'] . '</div>
+        </div>',
+    );
+  } else {
+    $output['step-2'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-2"><h2>Step #2</h2>
+        <div class="step-incomplete">Step not yet completed.</div>
+        </div>',
+    );    
+  }
+
+  if (achievements_unlocked_already('step-3', $user->uid)) {  
+    $output['step-3'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-3"><h2>Step #3</h2>
+        <div class="step-question">In order to fulfill the Initiative requirements, we must create/adapt this number of new programs:</div>
+        <div class="step-answer">' . $query_select['step3_q1'] . '</div>
+        <div class="step-question">We would like to create/adapt new programming in the following settings:</div>
+        <div class="step-answer">' . $query_select['step3_q2'] . '</div>
+        <div class="step-question">These are the challenges that we may face in implementing this many programs in these areas:</div>
+        <div class="step-answer">' . $query_select['step3_q3'] . '</div>
+        </div>',
+    );
+  } else {
+    $output['step-3'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-3"><h2>Step #3</h2>
+        <div class="step-incomplete">Step not yet completed.</div>
+        </div>',
+    );        
+  }
+
+  if (achievements_unlocked_already('step-4', $user->uid)) {
+    $output['step-4'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-3"><h2>Step #4</h2>
+        <div class="step-question">These are the programs that we plan to create/adapt at camp this summer:</div>
+        <div class="step-answer">' . $query_select['step4_q1'] . '</div>
+        <div class="step-question">These are the subjects that our programs will cover:</div>
+        <div class="step-answer">' . $query_select['step4_q2'] . '</div>
+        <div class="step-question">The following programs will require significant adaptation for our camp:</div>
+        <div class="step-answer">' . $query_select['step4_q3'] . '</div>
+        <div class="step-question">The following programs will require little/or no adaptation for our camp:</div>
+        <div class="step-answer">' . $query_select['step4_q4'] . '</div>
+        <div class="step-question">The following settings will be utilized at camp:</div>
+        <div class="step-answer">' . $query_select['step4_q5'] . '</div>
+        </div>',  
+    );
+  } else {
+    $output['step-4'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step-4"><h2>Step #4</h2>
+        <div class="step-incomplete">Step not yet completed.</div>
+        </div>',
+    );        
+  }
+  
   return $output;
 }

@@ -28,10 +28,10 @@ function goodman_planning_tool_permission() {
 function goodman_planning_tool_menu() {
   $items = array(
     'program-planning-tool' => array(
-      'title' => 'Program Planning Tool',
-      'description' => 'Goodman Initiative Program Planning Tool.',
-      'page callback' => 'goodman_planning_tool_page',
-      'file' => 'goodman_planning_tool.pages.inc',
+      'title' =>          'Program Planning Tool',
+      'description' =>    'Goodman Initiative Program Planning Tool.',
+      'page callback' =>  'goodman_planning_tool_page',
+      'file' =>           'goodman_planning_tool.pages.inc',
       'access arguments' => array('access planning tool'),
     ),
     'program-planning-tool/step-1' => array(
@@ -145,7 +145,16 @@ function goodman_planning_tool_menu() {
       'page callback' => 'goodman_planning_tool_step4_forward_page',
       'file' => 'goodman_planning_tool.pages.inc',
       'access arguments' => array('access planning tool'),
-    ),    
+    ),
+    'user/%user/planning-tool' => array(
+      'access arguments'  => array('access planning tool'),
+      'description'       => "View a specific user's Planning Tool answers.",
+      'file'              => 'goodman_planning_tool.pages.inc',
+      'page callback'     => 'goodman_planning_tool_user_page',
+      'page arguments'    => array(1),
+      'title'             => 'Planning Tool',
+      'type'              => MENU_LOCAL_TASK,
+    ),
   );
   return $items;
 }
@@ -163,30 +172,50 @@ function goodman_planning_tool_achievements_info() {
           'description' => t("Choosing a Thematic Approach"),
           'storage' => 'planning-tool',
           'points' => 10,
+          'images' => array(
+            'unlocked'  => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-unlocked.png',
+            'locked'    => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-locked.png',
+          ),          
         ),
         'step-2' => array(
           'title' => t('Completed Step Two'),
           'description' => t("Identifying Settings and Resources"),
           'storage' => 'planning-tool',
           'points' => 10,
+          'images' => array(
+            'unlocked'  => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-unlocked.png',
+            'locked'    => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-locked.png',
+          ),
         ),
         'step-3' => array(
           'title' => t('Completed Step Three'),
           'description' => t("Defining Your Audience"),
           'storage' => 'planning-tool',
           'points' => 10,
+          'images' => array(
+            'unlocked'  => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-unlocked.png',
+            'locked'    => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-locked.png',
+          ),
         ),
         'step-4' => array(
           'title' => t('Completed Step Four'),
           'description' => t("Choosing Programs & Managing Scope"),
           'storage' => 'planning-tool',
           'points' => 10,
+          'images' => array(
+            'unlocked'  => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-unlocked.png',
+            'locked'    => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-locked.png',
+          ),          
         ),
         'complete' => array(
           'title' => t('Completed Planning Tool'),
           'description' => t("Ready to program!"),
           'storage' => 'planning-tool',
           'points' => 0,
+          'images' => array(
+            'unlocked'  => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-unlocked.png',
+            'locked'    => drupal_get_path('module', 'goodman_planning_tool') . '/images/goodman-locked.png',
+          ),          
         ),
       ),
     ),
@@ -195,37 +224,64 @@ function goodman_planning_tool_achievements_info() {
 }
 
 function goodman_planning_tool_step1_form($form, $form_state) {
-  $form = array();
+  global $user; //Get the current user.
 
-  // fetch the taxonomy terms inside the themes vocabulary
-  $taxonomyQuery = new EntityFieldQuery();
-  $taxonomyTerms = $taxonomyQuery->entityCondition('entity_type', 'taxonomy_term')
-    ->propertyCondition('vid', 7) //change 2 to any vocabulary ID
-    ->propertyOrderBy('weight')
+  $query_select = db_select('gpt') //Query the database to see of the user has a record.
+  ->fields('gpt')
+  ->condition('uid', $user->uid, '=')
+  ->execute()
+  ->fetchAssoc();
+    
+  if (!$query_select) { //insert record if one does not exist.
+    $query_insert = db_insert('gpt')
+    ->fields(array('uid'))
+    ->values(array(
+      'uid' => $user->uid )
+    )
     ->execute();
-  foreach($taxonomyTerms['taxonomy_term'] as $term) {
-    $relevantTerms[] = $term->tid;
   }
+
+  $form = array();
   
-  dprint_r($relevantTerms);
+  // fetch the taxonomy terms inside the themes vocabulary
+  //$taxonomyQuery = new EntityFieldQuery();
+  //$taxonomyTerms = $taxonomyQuery->entityCondition('entity_type', 'taxonomy_term')
+  //  ->propertyCondition('vid', 7) //change 2 to any vocabulary ID
+  //  ->propertyOrderBy('weight')
+  //  ->execute();
+  //foreach($taxonomyTerms['taxonomy_term'] as $term) {
+  //  $relevantTerms[] = $term->tid;
+  //}
 
   // $relevantTerms will now have the terms of your target vocabulary
   $form['question-1'] = array(
-    '#type' => 'select',
+    '#type' => 'checkboxes',
     '#title' => t('We have chosen the following theme(s) for this summer at
       camp'),
-    '#options' => $relevantTerms, // This is the bit that was missing
+    '#options' => drupal_map_assoc(
+      array(
+      'A Land & Its People',
+      'The Pioneering Spirit',
+      'A People\'s Hope',
+      'Creation & Rebirth',
+      'Dreams & Realities'
+      )
+    ),
+    '#default_value' => $query_select['step1_q1'],    
+
   );
   $form['question-2'] = array(
     '#type' => 'textarea',
     '#title' => t('We chose this theme because:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step1_q2'],
   );
   $form['question-3'] = array(
     '#type' => 'textarea',
     '#title' => t('We already do programming at camp around a theme like this
       in the following ways:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step1_q3'],
   );
   $form['submit'] = array(
     '#type' => 'submit',
@@ -248,28 +304,59 @@ function goodman_planning_tool_step1_form_submit($form, &$form_state) {
     achievements_unlocked('step-1', $user->uid); //unlock the achivement
   }
   
+  $curric_themes = addslashes(implode (", ", $form_state['values']['question-1']));
+  
+  $query = db_update('gpt')
+  ->fields(array(
+    'step1_q1' => $curric_themes,
+    'step1_q2' => $form_state['values']['question-2'],
+    'step1_q3' => $form_state['values']['question-3'],
+  ))
+  ->condition('uid', $user->uid, '=')
+  ->execute();
+  
   $form_state['redirect'] = 'program-planning-tool';
 }
 
 function goodman_planning_tool_step2_form($form, $form_state) {
+  global $user; //Get the current user.
+
+  $query_select = db_select('gpt') //Query the database to see of the user has a record.
+  ->fields('gpt')
+  ->condition('uid', $user->uid, '=')
+  ->execute()
+  ->fetchAssoc();  
+  
+  if (!$query_select) { //insert record if one does not exist.
+    $query_insert = db_insert('gpt')
+    ->fields(array('uid'))
+    ->values(array(
+      'uid' => $user->uid )
+    )
+    ->execute();
+  }
+  
   $form = array();
   
   $form['question-1'] = array(
     '#type' => 'textarea',
     '#title' => t('Israel exists very strongly in these areas at camp:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step2_q1'],
   );
   $form['question-2'] = array(
     '#type' => 'textarea',
     '#title' => t('These areas are "fertile ground" for developing Israel
       programs:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step2_q2'],
   );
   $form['question-3'] = array(
     '#type' => 'textarea',
     '#title' => t('We plan to develop or enhance programming in the following
       areas:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step2_q3'],
   );
   $form['submit'] = array(
     '#type' => 'submit',
@@ -291,12 +378,38 @@ function goodman_planning_tool_step2_form_submit($form, &$form_state) {
     
     achievements_unlocked('step-2', $user->uid); //unlock the achivement
   }
+
+  $query = db_update('gpt')
+  ->fields(array(
+    'step2_q1' => $form_state['values']['question-1'],
+    'step2_q2' => $form_state['values']['question-2'],
+    'step2_q3' => $form_state['values']['question-3'],
+  ))
+  ->condition('uid', $user->uid, '=')
+  ->execute();
   
   $form_state['redirect'] = 'program-planning-tool';
 }
 
 function goodman_planning_tool_step3_form($form, $form_state) {
-  $form = array();
+  global $user; //Get the current user.
+
+  $query_select = db_select('gpt') //Query the database to see of the user has a record.
+  ->fields('gpt')
+  ->condition('uid', $user->uid, '=')
+  ->execute()
+  ->fetchAssoc();  
+  
+  if (!$query_select) { //insert record if one does not exist.
+    $query_insert = db_insert('gpt')
+    ->fields(array('uid'))
+    ->values(array(
+      'uid' => $user->uid )
+    )
+    ->execute();
+  }
+
+  $form = array(); //Build the form.
   
   $form['question-1'] = array(
     '#type' => 'select',
@@ -304,24 +417,27 @@ function goodman_planning_tool_step3_form($form, $form_state) {
       create/adapt this number of new programs:'),
     '#options' => array (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15),
     '#required' => TRUE,
+    '#default_value' => $query_select['step3_q1'],
   );
   $form['question-2'] = array(
     '#type' => 'textarea',
     '#title' => t('We would like to create/adapt new programming in the
       following settings:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step3_q2'],
   );
   $form['question-3'] = array(
     '#type' => 'textarea',
     '#title' => t('These are the challenges that I may face in implementing
       this many programs in these areas: '),
     '#required' => TRUE,
+    '#default_value' => $query_select['step3_q3'],
   );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Submit'),
   );
-  
+
   return $form;
 }
 
@@ -337,40 +453,71 @@ function goodman_planning_tool_step3_form_submit($form, &$form_state) {
     
     achievements_unlocked('step-3', $user->uid); //unlock the achivement
   }
+
+  $query = db_update('gpt')
+  ->fields(array(
+    'step3_q1' => $form_state['values']['question-1'],
+    'step3_q2' => $form_state['values']['question-2'],
+    'step3_q3' => $form_state['values']['question-3'],
+  ))
+  ->condition('uid', $user->uid, '=')
+  ->execute();
   
   $form_state['redirect'] = 'program-planning-tool';
 }
 
 function goodman_planning_tool_step4_form($form, $form_state) {
-  $form = array();
+  global $user; //Get the current user.
+
+  $query_select = db_select('gpt') //Query the database to see of the user has a record.
+  ->fields('gpt')
+  ->condition('uid', $user->uid, '=')
+  ->execute()
+  ->fetchAssoc();  
+  
+  if (!$query_select) { //insert record if one does not exist.
+    $query_insert = db_insert('gpt')
+    ->fields(array('uid'))
+    ->values(array(
+      'uid' => $user->uid )
+    )
+    ->execute();
+  }
+
+  $form = array(); //Build the form.
   
   $form['question-1'] = array(
     '#type' => 'textarea',
     '#title' => t('These are the programs that we plan to create/adapt at
       camp this summer:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step4_q1'],
   );
   $form['question-2'] = array(
     '#type' => 'textarea',
     '#title' => t('These are the subjects that our programs will cover:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step4_q2'],
   );
   $form['question-3'] = array(
     '#type' => 'textarea',
     '#title' => t('The following programs will require significant adaptation
       for our camp:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step4_q3'],    
   );
   $form['question-4'] = array(
     '#type' => 'textarea',
     '#title' => t('The following programs will require little/or no adaptation
       for our camp:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step4_q4'],
   );  
-  $form['question-4'] = array(
+  $form['question-5'] = array(
     '#type' => 'textarea',
     '#title' => t('The following settings will be utilized at camp:'),
     '#required' => TRUE,
+    '#default_value' => $query_select['step4_q5'],
   );  
   $form['submit'] = array(
     '#type' => 'submit',
@@ -392,6 +539,17 @@ function goodman_planning_tool_step4_form_submit($form, &$form_state) {
     
     achievements_unlocked('step-4', $user->uid); //unlock the achivement
   }
-    
+
+  $query = db_update('gpt')
+  ->fields(array(
+    'step4_q1' => $form_state['values']['question-1'],
+    'step4_q2' => $form_state['values']['question-2'],
+    'step4_q3' => $form_state['values']['question-3'],
+    'step4_q4' => $form_state['values']['question-4'],
+    'step4_q5' => $form_state['values']['question-5'],
+  ))
+  ->condition('uid', $user->uid, '=')
+  ->execute();
+  
   $form_state['redirect'] = 'program-planning-tool';
 }

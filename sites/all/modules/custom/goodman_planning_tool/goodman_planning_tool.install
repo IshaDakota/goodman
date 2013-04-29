@@ -67,14 +67,25 @@ function goodman_planning_tool_schema() {
         'description'   => 'Data Field for Goodman Planning Tool.',
         'type'          => 'text',
       ),
-      'step4_q3' => array(
+      'step4_q4' => array(
         'description'   => 'Data Field for Goodman Planning Tool.',
         'type'          => 'text',
       ),
+      'step4_q5' => array(
+        'description'   => 'Data Field for Goodman Planning Tool.',
+        'type'          => 'text',
+      ),      
     ),
     'primary key'       => array('uid'),
   );
 
   return $schema;
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function goodman_plannng_tool_uninstall() {
 
 }

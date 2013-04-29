@@ -2,6 +2,7 @@
 
 .next-step {
   margin-top: 2em;
+  margin-bottom: 3em;
   float: left;
 }
 
@@ -17,4 +18,94 @@
   background: #cbcbc5;
   border-color: #E7E7E7;
   text-decoration: none;
+}
+
+ul.quest-list {
+  clear: left;
+  padding-top: 20px;
+  float: left;
+  list-style-type: none;
+}
+
+.block ul.quest-list li {
+  margin: .5em 0;
+}
+
+ul.quest-list li a {
+  text-decoration: none;
+  font-size: 1.25em;
+  padding: 0 0 .2em 90px;
+}
+
+ul.quest-list li.quest-unachieved a {
+  background: url('./images/start-button.png') no-repeat 0 0;
+  background-size: 75px 25px;
+}
+
+ul.quest-list li.quest-achieved a {
+  background: url('./images/unlocked-button.png') no-repeat 0 0;
+  background-size: 75px 25px;  
+}
+
+.step-question {
+  font-weight: bold;
+}
+
+#badge-image {
+  float: left;
+  margin-right: 20px;
+}
+
+#intro-image {
+  float: right;
+  margin-left: 20px;
+}
+
+#step1-image {
+  margin: 0 auto;
+}
+
+#step1-image img {
+  width: 250px;
+  margin: 0 auto;
+  display: block;
+}
+
+#conclusion {
+  clear: left;
+}
+
+.note {
+  border: 1px solid #373737;
+  border-radius: 5px;
+  padding: 1.5em;
+  background: url('./images/yellow_notebook_paper.jpg');
+  margin: 0 2em 2em 2em;
+}
+
+.note h3.note-header{
+  margin-top: 0;
+}
+
+/**
+ * Single achievement notification display.
+ */
+.achievement-notification-dialog {
+  border-color: #626163;
+  margin: 0.6em;
+  padding: 0;
+  position: fixed;
+}
+
+.achievement-notification-dialog .achievement-notification {
+  background: #e2e3df;
+}
+
+
+.achievement-notification .achievement-points-box {
+  border: 1px solid #434142;
+  background: #bdbcbe;
+  margin-top: 0.6em;
+  height: 70px;
+  width: 70px;
 }
