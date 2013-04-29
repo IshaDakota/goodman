@@ -486,45 +486,110 @@ function goodman_planning_tool_step4_form($form, $form_state) {
 
   $form = array(); //Build the form.
   
-  $form['question-1'] = array(
-    '#type' => 'textarea',
-    '#title' => t('These are the programs that we plan to create/adapt at
-      camp this summer:'),
-    '#required' => TRUE,
-    '#default_value' => $query_select['step4_q1'],
+  if (empty($form_state['num_names'])) {
+    $form_state['num_names'] = 1;
+  }
+
+  // Build the number of name fieldsets indicated by $form_state['num_names']
+  for ($i = 1; $i <= $form_state['num_names']; $i++) {
+    $form['name'][$i] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Program #@num', array('@num' => $i)),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+    );
+
+    $form['name'][$i]['program_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Program Title'),
+      '#description' => t("Enter a program name from the Goodman Database or one of your own."),
+      '#size' => 100,
+      '#maxlength' => 100,
+      '#required' => TRUE,
+      '#default_value' => $query_select['program_name'],           
+    );
+    $form['name'][$i]['program_setting'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Program Setting'),
+      '#description' => t('Where at camp will this program take place (e.g. The Arts Center, The Lakefront, Bunks, etc.).'),
+      '#size' => 75,
+      '#maxlength' => 75,
+      '#required' => TRUE,
+      '#default_value' => $query_select['program_setting'],           
+    );
+    $form['name'][$i]['program_adaptation'] = array(
+      '#title' => t("Degree of Adaptation"),
+      '#description' => t('How much will the program needed to be adapted to your camp from how it is written in the database.'),
+      '#type' => 'select',
+      '#options' => array (
+      'A large degree of adaptation',
+      'Some adaptation',
+      'Little adaptation',
+      'No adaptation',
+      'This program is not from the database'),
+      '#required' => TRUE,
+      '#default_value' => $query_select['program_adaptation'],     
+    );
+    $form['name'][$i]['program_subjects'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Subjects'),
+      '#description' => t("After adaptation, the program will cover these curricular subjects."),
+      '#size' => 100,
+      '#maxlength' => 150,
+      '#required' => TRUE,
+      '#default_value' => $query_select['program_subjects'],     
+      
+    );
+  }
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
   );
-  $form['question-2'] = array(
-    '#type' => 'textarea',
-    '#title' => t('These are the subjects that our programs will cover:'),
-    '#required' => TRUE,
-    '#default_value' => $query_select['step4_q2'],
+
+  // Adds "Add another program" button
+  $form['add_name'] = array(
+    '#type' => 'submit',
+    '#value' => t('Add another program'),
+    '#submit' => array('goodman_planning_tool_add_name'),
   );
-  $form['question-3'] = array(
-    '#type' => 'textarea',
-    '#title' => t('The following programs will require significant adaptation
-      for our camp:'),
-    '#required' => TRUE,
-    '#default_value' => $query_select['step4_q3'],    
-  );
-  $form['question-4'] = array(
-    '#type' => 'textarea',
-    '#title' => t('The following programs will require little/or no adaptation
-      for our camp:'),
-    '#required' => TRUE,
-    '#default_value' => $query_select['step4_q4'],
-  );  
-  $form['question-5'] = array(
-    '#type' => 'textarea',
-    '#title' => t('The following settings will be utilized at camp:'),
-    '#required' => TRUE,
-    '#default_value' => $query_select['step4_q5'],
-  );  
+
+  // If we have more than one name, this button allows removal of the
+  // last name.
+  if ($form_state['num_names'] > 1) {
+    $form['remove_name'] = array(
+      '#type' => 'submit',
+      '#value' => t('Remove last program'),
+      '#submit' => array('goodman_planning_tool_remove_name'),
+      
+      // Since we are removing a name, don't validate until later.
+      '#limit_validation_errors' => array(),
+    );
+  }
+  
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Submit'),
   );
   
   return $form;
+}
+
+function goodman_planning_tool_add_name($form, &$form_state) {
+  // Everything in $form_state is persistent, so we'll just use
+  // $form_state['add_name']
+  $form_state['num_names']++;
+
+  // Setting $form_state['rebuild'] = TRUE causes the form to be rebuilt again.
+  $form_state['rebuild'] = TRUE;
+}
+
+function goodman_planning_tool_remove_name($form, &$form_state) {
+  if ($form_state['num_names'] > 1) {
+    $form_state['num_names']--;
+  }
+
+  // Setting $form_state['rebuild'] = TRUE causes the form to be rebuilt again.
+  $form_state['rebuild'] = TRUE;
 }
 
 function goodman_planning_tool_step4_form_submit($form, &$form_state) {

@@ -257,8 +257,6 @@ function goodman_planning_tool_step1_consider_page() {
 
 function goodman_planning_tool_step1_forward_page() {
   $output =  array(
-    'note' => array(
-      '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
         <div class="note-body"> ' . t('Your answers on this worksheet will be
         saved in your user profile under ') . l(t('Planning Tool'), 'user/' .
@@ -266,7 +264,9 @@ function goodman_planning_tool_step1_forward_page() {
         t('. Initiative faculty and staff will be able to
         see this as well.') . '</div>',
       '#prefix' => '<div class="note">',
-      '#suffix' => '</div>',
+     'note' => array(
+      '#type' => 'markup',
+     '#suffix' => '</div>',
     ),      
     'display_form' => drupal_get_form('goodman_planning_tool_step1_form'),
     'back_link' => array(
@@ -299,6 +299,14 @@ function goodman_planning_tool_step2_page() {
         identify things that you are already doing that will contribute to
         your thematic approach, and find areas where you can easily create
         new programs.') . '</p>',
+    ),
+     'note' => array(
+      '#type' => 'markup',
+      '#markup' => '<h3 class="note-header">Note:</h3> 
+        <div class="note-body"> ' . t('The purpose 1) relize that settings can be diverse
+                                      2) that resources can be obstacles.') . '</div>',
+      '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
     ),
     'main_link' => array(
       '#type' => 'markup',
@@ -445,7 +453,7 @@ function goodman_planning_tool_step3_prepare_page() {
       '#items' => array(
         t('Evaluate the "settings and resources" from step two and determine
           where you might like to introduce new programming at camp. Decide
-          what is realistic on your list of "fertile ground."'), 
+          what is realistic on your list of "fertile ground."  -->Click here  to see them//place buttons at the bottom'), 
         t('Have a conversation with the person/people at your camp who "hold
           the schedule" to ensure that they understand the Initiative
           requirements and where you need space to be reserved in the
@@ -649,6 +657,24 @@ function goodman_planning_tool_step4_consider_page() {
 
 function goodman_planning_tool_step4_forward_page() {
   $output =  array(
+    'intro' => array(
+      '#type' => 'markup',
+      '#markup' => '<div class="step4-intro">' . t('Use the worksheet below to enter
+      the programs you plan to implement this summer as part of the Goodman
+      Initiative. For each of the programs, you should indicate the ') . '<b>' . t('program
+      setting') . '</b>' . t(' (where in camp the program will take place), ') . '<b>' . t('the degree of
+      adaptation') . '</b>' . t(' (how much the program will need to be adapted from the
+      version that is in the database) and the ') . '<b>' . t(' curricular subjects') . '</b>' . t(' that it will cover.') . '</div>',
+    ),
+    'note' => array(
+      '#type' => 'markup',
+      '#markup' => '<h3 class="note-header">Note:</h3> 
+        <div class="note-body"> ' . t('The number of programs you enter
+          here should be the same as what you entered in Step 3. Click "Add another program"
+          to add new programs before you click "submit" to finish the worksheet') . '</div>',
+      '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
+    ),        
     'display_form' => drupal_get_form('goodman_planning_tool_step4_form'),
     'back_link' => array(
       '#type' => 'markup',

@@ -1,7 +1,17 @@
-/* css for Personal Narrative Badge Module */
+/**
+ * @file
+ * CSS for the Goodman Planning Tool Module
+ *
+ * You need to know Israel - You need to know Israelis
+ * rabinical students come from Israel to continue to engage with Israel
+ */
 
+
+/**
+ * Bottom navigation for tool.
+ */
 .next-step {
-  margin-top: 2em;
+  margin-top: 4em;
   margin-bottom: 3em;
   float: left;
 }
@@ -20,6 +30,9 @@
   text-decoration: none;
 }
 
+/**
+ * List of steps on the planning tool main page.
+ */
 ul.quest-list {
   clear: left;
   padding-top: 20px;
@@ -51,6 +64,9 @@ ul.quest-list li.quest-achieved a {
   font-weight: bold;
 }
 
+/**
+ * Image styles
+ */
 #badge-image {
   float: left;
   margin-right: 20px;
@@ -75,6 +91,9 @@ ul.quest-list li.quest-achieved a {
   clear: left;
 }
 
+/**
+ * Styling for the "note" divs.
+ */
 .note {
   border: 1px solid #373737;
   border-radius: 5px;
