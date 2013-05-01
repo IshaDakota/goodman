@@ -178,7 +178,9 @@ function goodman_planning_tool_step1_prepare_page() {
         l(t('Sort the database by themes'), 'sort/theme', array('attributes' => array('target'=>'_blank'))) . t(' and browse the programs under each theme.'),
         t('Note that many programs appear under multiple themes.')
       ),
-    '#theme' => 'item_list',
+      '#theme' => 'item_list',
+      '#prefix' => '<div class="checkbox-list">',
+      '#suffix' => '</div>',
     ),
     'back_link' => array(
       '#type' => 'markup',
@@ -231,6 +233,8 @@ function goodman_planning_tool_step1_consider_page() {
           such an approach?'),        
       ),
     '#theme' => 'item_list',
+    '#prefix' => '<div class="checkbox-list">',
+    '#suffix' => '</div>',
     ),
     'back_link' => array(
       '#type' => 'markup',
@@ -257,16 +261,16 @@ function goodman_planning_tool_step1_consider_page() {
 
 function goodman_planning_tool_step1_forward_page() {
   $output =  array(
+    'note' => array(
+      '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
         <div class="note-body"> ' . t('Your answers on this worksheet will be
         saved in your user profile under ') . l(t('Planning Tool'), 'user/' .
         $user->uid . '/planning-tool') .
         t('. Initiative faculty and staff will be able to
         see this.') . '</div>',
+      '#suffix' => '</div>',
       '#prefix' => '<div class="note">',
-     'note' => array(
-      '#type' => 'markup',
-     '#suffix' => '</div>',
     ),      
     'display_form' => drupal_get_form('goodman_planning_tool_step1_form'),
     'back_link' => array(
@@ -304,9 +308,22 @@ function goodman_planning_tool_step2_page() {
      'note' => array(
       '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
-        <div class="note-body"> ' . t('The purpose 1) relize that settings can be diverse
-                                      2) that resources can be obstacles.') . '</div>',
+        <div class="note-body"> ' . t('The purpose in this step is twofold:') . 
+        '<ol><li>' . t('to help find more places in camp you can "inject" Israel (it will be easier
+        to fulfill grant requirements)') . '</li>
+        <li>' . t('to identify obstacles early so that you
+        don\'t waste valuable time planning a program that just won\'t work.') . '</li></ol></div>',
       '#prefix' => '<div class="note">',
+      '#suffix' => '</div>',
+    ),
+    'intro_pic' => array(
+      '#theme' => 'image_formatter',
+      '#item' => array(
+        'uri' => drupal_get_path('module', 'goodman_planning_tool') . '/images/camp-settings.jpg',
+        'alt' => 'Camp Settings',
+        'title' => 'Camp Settings,'
+        ),
+      '#prefix' => '<div id="step2-image">',
       '#suffix' => '</div>',
     ),
     'main_link' => array(
@@ -339,6 +356,8 @@ function goodman_planning_tool_step2_prepare_page() {
           do in the future.'),
       ),
       '#theme' => 'item_list',
+      '#prefix' => '<div class="checkbox-list">',
+      '#suffix' => '</div>',
     ),
     'back_link' => array(
       '#type' => 'markup',
@@ -376,6 +395,8 @@ function goodman_planning_tool_step2_consider_page() {
         t('How can the theme(s) you chose work within those settings?'),        
       ),
     '#theme' => 'item_list',
+    '#prefix' => '<div class="checkbox-list">',
+    '#suffix' => '</div>',
     ),
     'back_link' => array(
       '#type' => 'markup',
@@ -431,6 +452,16 @@ function goodman_planning_tool_step3_page() {
         a camp-wide approach to Israel education that is achievable within
         your camp framework.') . '</p>',
     ),
+    'intro_pic' => array(
+      '#theme' => 'image_formatter',
+      '#item' => array(
+        'uri' => drupal_get_path('module', 'goodman_planning_tool') . '/images/define-target-audience.jpg',
+        'alt' => 'Define Your Audience',
+        'title' => 'Define Your Audience,'
+        ),
+      '#prefix' => '<div id="step3-image">',
+      '#suffix' => '</div>',
+    ),    
     'main_link' => array(
       '#type' => 'markup',
       '#markup' => '<div class="next-step">' .
@@ -462,6 +493,8 @@ function goodman_planning_tool_step3_prepare_page() {
           schedule.'),
       ),
       '#theme' => 'item_list',
+      '#prefix' => '<div class="checkbox-list">',
+      '#suffix' => '</div>',      
     ),     
     'back_link' => array(
       '#type' => 'markup',
@@ -502,6 +535,8 @@ function goodman_planning_tool_step3_consider_page() {
           effectively?'),
       ),
     '#theme' => 'item_list',
+      '#prefix' => '<div class="checkbox-list">',
+      '#suffix' => '</div>',
     ),
     'back_link' => array(
       '#type' => 'markup',
@@ -558,6 +593,16 @@ function goodman_planning_tool_step4_page() {
         selecting programs that will help you fulfill your goals as you work
         to create a comprehensive programming plan for the summer.  ') . '</p>',
     ),
+    'intro_pic' => array(
+      '#theme' => 'image_formatter',
+      '#item' => array(
+        'uri' => drupal_get_path('module', 'goodman_planning_tool') . '/images/choose-apple.jpg',
+        'alt' => 'Define Your Audience',
+        'title' => 'Define Your Audience,'
+        ),
+      '#prefix' => '<div id="step3-image">',
+      '#suffix' => '</div>',
+    ),       
     'main_link' => array(
       '#type' => 'markup',
       '#markup' => '<div class="next-step">' .
@@ -592,6 +637,8 @@ function goodman_planning_tool_step4_prepare_page() {
           add them to your list.'),
       ),
       '#theme' => 'item_list',
+      '#prefix' => '<div class="checkbox-list">',
+      '#suffix' => '</div>',      
     ),     
     'back_link' => array(
       '#type' => 'markup',
@@ -636,7 +683,9 @@ function goodman_planning_tool_step4_consider_page() {
       '#type' => 'ul',
       '#attributes' => array('class' => 'custom-class'),
       '#theme' => 'item_list',
-    ),
+      '#prefix' => '<div class="checkbox-list">',
+      '#suffix' => '</div>',
+      ),
     'back_link' => array(
       '#type' => 'markup',
       '#markup' => '<div class="next-step">' .

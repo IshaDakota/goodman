@@ -44,7 +44,8 @@ function goodman_planning_tool_menu() {
       'title' => 'To Prepare',
       'description' => 'Page for Goodman Initiative Program Planning Tool.',
       'page callback' => 'goodman_planning_tool_step1_prepare_page',
- array('access planning tool'),
+      'file' => 'goodman_planning_tool.pages.inc',
+      'access arguments' => array('access planning tool'),
     ),    
     'program-planning-tool/step-1/to-consider' => array(
       'title' => 'To Consider',

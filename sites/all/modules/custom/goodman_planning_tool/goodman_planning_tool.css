@@ -87,6 +87,17 @@ ul.quest-list li.quest-achieved a {
   display: block;
 }
 
+#step2-image img {
+  width: 910px;
+  margin: 0 auto;
+  display: block;
+}
+
+#step3-image img {
+  margin: 0 auto;
+  display: block;
+}
+
 #conclusion {
   clear: left;
 }
@@ -104,6 +115,20 @@ ul.quest-list li.quest-achieved a {
 
 .note h3.note-header{
   margin-top: 0;
+}
+
+.checkbox-list ul {
+  list-style-type: none;
+}
+
+.block .checkbox-list ul li {
+  background: url('./images/checkbox-icon.png') no-repeat 0 0;
+  background-size: 35px 35px;
+  margin: 20px 0;
+  font-size: 1.25em;
+  padding: 0 0 .2em 50px;
+  line-height: 1.8em;
+
 }
 
 /**
