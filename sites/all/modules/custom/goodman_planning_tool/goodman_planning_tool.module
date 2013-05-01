@@ -21,7 +21,6 @@ function goodman_planning_tool_permission() {
   return $permission;
 }
 
-
 /**
  * Implements hook_menu().
  */
@@ -35,7 +34,7 @@ function goodman_planning_tool_menu() {
       'access arguments' => array('access planning tool'),
     ),
     'program-planning-tool/step-1' => array(
-      'title' => 'Step One: Choosing a Thematic Approach',
+      'title' => 'Step One: Choose a Thematic Approach',
       'description' => 'Page for Goodman Initiative Program Planning Tool.',
       'page callback' => 'goodman_planning_tool_step1_page',
       'file' => 'goodman_planning_tool.pages.inc',
@@ -45,8 +44,7 @@ function goodman_planning_tool_menu() {
       'title' => 'To Prepare',
       'description' => 'Page for Goodman Initiative Program Planning Tool.',
       'page callback' => 'goodman_planning_tool_step1_prepare_page',
-      'file' => 'goodman_planning_tool.pages.inc',
-      'access arguments' => array('access planning tool'),
+ array('access planning tool'),
     ),    
     'program-planning-tool/step-1/to-consider' => array(
       'title' => 'To Consider',
@@ -63,7 +61,7 @@ function goodman_planning_tool_menu() {
       'access arguments' => array('access planning tool'),
     ),
     'program-planning-tool/step-2' => array(
-      'title' => 'Step Two: Identifying Settings and Resources',
+      'title' => 'Step Two: Identify Settings and Resources',
       'description' => 'Page for Goodman Initiative Program Planning Tool.',
       'page callback' => 'goodman_planning_tool_step2_page',
       'file' => 'goodman_planning_tool.pages.inc',
@@ -91,7 +89,7 @@ function goodman_planning_tool_menu() {
       'access arguments' => array('access planning tool'),
     ),
     'program-planning-tool/step-3' => array(
-      'title' => 'Step Three: Defining Your Audience',
+      'title' => 'Step Three: Define Your Audience',
       'description' => 'Page for Goodman Initiative Program Planning Tool.',
       'page callback' => 'goodman_planning_tool_step3_page',
       'file' => 'goodman_planning_tool.pages.inc',
@@ -119,7 +117,7 @@ function goodman_planning_tool_menu() {
       'access arguments' => array('access planning tool'),
     ),    
     'program-planning-tool/step-4' => array(
-      'title' => 'Step Four: Choosing Programs & Managing Scope',
+      'title' => 'Step Four: Select Programs & Manage Scope',
       'description' => 'Page for Goodman Initiative Program Planning Tool.',
       'page callback' => 'goodman_planning_tool_step4_page',
       'file' => 'goodman_planning_tool.pages.inc',
@@ -354,7 +352,7 @@ function goodman_planning_tool_step2_form($form, $form_state) {
   $form['question-3'] = array(
     '#type' => 'textarea',
     '#title' => t('We plan to develop or enhance programming in the following
-      areas:'),
+      areas this summer:'),
     '#required' => TRUE,
     '#default_value' => $query_select['step2_q3'],
   );
@@ -484,10 +482,20 @@ function goodman_planning_tool_step4_form($form, $form_state) {
     ->execute();
   }
 
+  $program_name = unserialize($query_select['step4_q1']);
+  $program_setting = unserialize($query_select['step4_q2']);
+  $program_adaptation = unserialize($query_select['step4_q3']);
+  $program_subjects = unserialize($query_select['step4_q4']);
+ 
+  $count_array = count($program_name);
+  if ($count_array == 0) {
+    $count_array++;
+  }
+
   $form = array(); //Build the form.
   
   if (empty($form_state['num_names'])) {
-    $form_state['num_names'] = 1;
+    $form_state['num_names'] = $count_array;
   }
 
   // Build the number of name fieldsets indicated by $form_state['num_names']
@@ -497,6 +505,7 @@ function goodman_planning_tool_step4_form($form, $form_state) {
       '#title' => t('Program #@num', array('@num' => $i)),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
+      '#tree' => TRUE,
     );
 
     $form['name'][$i]['program_name'] = array(
@@ -506,8 +515,8 @@ function goodman_planning_tool_step4_form($form, $form_state) {
       '#size' => 100,
       '#maxlength' => 100,
       '#required' => TRUE,
-      '#default_value' => $query_select['program_name'],           
-    );
+      '#default_value' => $program_name[$i],
+      );
     $form['name'][$i]['program_setting'] = array(
       '#type' => 'textfield',
       '#title' => t('Program Setting'),
@@ -515,20 +524,20 @@ function goodman_planning_tool_step4_form($form, $form_state) {
       '#size' => 75,
       '#maxlength' => 75,
       '#required' => TRUE,
-      '#default_value' => $query_select['program_setting'],           
+      '#default_value' => $program_setting[$i],
     );
     $form['name'][$i]['program_adaptation'] = array(
       '#title' => t("Degree of Adaptation"),
       '#description' => t('How much will the program needed to be adapted to your camp from how it is written in the database.'),
       '#type' => 'select',
       '#options' => array (
-      'A large degree of adaptation',
-      'Some adaptation',
-      'Little adaptation',
-      'No adaptation',
-      'This program is not from the database'),
+      'large degree' => 'A large degree of adaptation',
+      'some' => 'Some adaptation',
+      'little' => 'Little adaptation',
+      'none' => 'No adaptation',
+      'not from database' => 'This program is not from the database'),
       '#required' => TRUE,
-      '#default_value' => $query_select['program_adaptation'],     
+      '#default_value' => $program_adaptation[$i],      
     );
     $form['name'][$i]['program_subjects'] = array(
       '#type' => 'textfield',
@@ -537,8 +546,7 @@ function goodman_planning_tool_step4_form($form, $form_state) {
       '#size' => 100,
       '#maxlength' => 150,
       '#required' => TRUE,
-      '#default_value' => $query_select['program_subjects'],     
-      
+      '#default_value' => $program_subjects[$i],      
     );
   }
   $form['submit'] = array(
@@ -604,17 +612,27 @@ function goodman_planning_tool_step4_form_submit($form, &$form_state) {
     
     achievements_unlocked('step-4', $user->uid); //unlock the achivement
   }
-
+  //create arrays for the program fields
+  $program_name = array();
+  $program_setting = array();
+  $program_adaptation = array();
+  $program_subjects = array();
+  
+  for ($i = 1; $i <= $form_state['num_names']; $i++) {
+    $program_name[$i] = $form_state['values'][$i]['program_name'];
+    $program_setting[$i] = $form_state['values'][$i]['program_setting'];
+    $program_adaptation[$i] = $form_state['values'][$i]['program_adaptation'];
+    $program_subjects[$i] = $form_state['values'][$i]['program_subjects'];
+  }
+    
   $query = db_update('gpt')
   ->fields(array(
-    'step4_q1' => $form_state['values']['question-1'],
-    'step4_q2' => $form_state['values']['question-2'],
-    'step4_q3' => $form_state['values']['question-3'],
-    'step4_q4' => $form_state['values']['question-4'],
-    'step4_q5' => $form_state['values']['question-5'],
+    'step4_q1' => serialize($program_name),
+    'step4_q2' => serialize($program_setting),
+    'step4_q3' => serialize($program_adaptation),
+    'step4_q4' => serialize($program_subjects),    
   ))
   ->condition('uid', $user->uid, '=')
   ->execute();
-  
   $form_state['redirect'] = 'program-planning-tool';
 }

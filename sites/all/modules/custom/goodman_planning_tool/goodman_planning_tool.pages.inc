@@ -33,19 +33,19 @@ function goodman_planning_tool_page() {
     'introduction' => array(
       '#type' => 'markup',
       '#markup' => '<p>' . t('
-        The Planning Tool was developed in order to provide a method for GEs
+        The Planning Tool helps GEs
         to ') . '<b>' . t('choose programs') . '</b>' . t(' for the summer and ') . 
         '<b>' . t('understand some of the challenges') . '</b>' . t(' they may
         face in implementation.') . '</p>
-        <p><em>'. t('Each of the four steps to the tool has three sections:') . '</em>
+        <p><em>'. t('Each of the tool\'s four steps has three sections:') . '</em>
         <ol>
-        <li><b>' . t('To Prepare: ') . '</b>' . t('Here you will gather resources to which you should
-          have access or questions you should be able to answer on the fly.') . '
-        <li><b>' . t('Questions to Consider: ') . '</b>' . t('These questions may require some more thought or
+        <li><b>' . t('To Prepare: ') . '</b>' . t('Identify resources to which you should
+          have access and questions you should be able to answer on the fly.') . '
+        <li><b>' . t('Questions to Consider: ') . '</b>' . t('These may require some thought or
                   consultation with other camp staff or your faculty advisor.') . '
-        <li><b>' . t('Moving Forward: ') . '</b>' . t('In this section, you will fill out a worksheet with
-                  specific answers to questions about your program planning. These answers
-                  will be saved so that you can use them as you continue planning.') . '
+        <li><b>' . t('Moving Forward: ') . '</b>' . t('In this section, you will complete a worksheet with
+                  to set out your plann for the summer. This workshhet
+                  will be saved so that you can use it as you continue planning.') . '
         </ol>
         </p>',
     ),
@@ -57,13 +57,13 @@ function goodman_planning_tool_page() {
       '#type' => 'markup',
       '#markup' => '<ul class = "quest-list">
         <li class = "' . $step1_status . '">' .
-          l(t('Step One: Choosing a Thematic Approach'), 'program-planning-tool/step-1') . '</li>
+          l(t('Step One: Choose a Thematic Approach'), 'program-planning-tool/step-1') . '</li>
         <li class = "' . $step2_status . '">' .
-          l(t('Step Two: Identifying Settings and Resources'), 'program-planning-tool/step-2') . '</li>
+          l(t('Step Two: Identify Settings and Resources'), 'program-planning-tool/step-2') . '</li>
         <li class = "' . $step3_status . '">' .
-          l(t('Step Three: Defining Your Audience'), 'program-planning-tool/step-3') . '</li>
+          l(t('Step Three: Define Your Audience'), 'program-planning-tool/step-3') . '</li>
         <li class = "' . $step4_status . '">' .
-          l(t('Step Four: Choosing Programs & Managing Scope'), 'program-planning-tool/step-4') . '</li>
+          l(t('Step Four: Select Programs & Manage Scope'), 'program-planning-tool/step-4') . '</li>
       </ul>',
     ),
     'intro_pic' => array(
@@ -79,16 +79,16 @@ function goodman_planning_tool_page() {
     'conclusion' => array(
       '#type' => 'markup',
       '#markup' => '<div id="conclusion"><p>' . t('
-        You do not need to finish all four steps at once -- in fact, it will
-        likely be better for you to divide this work over several weeks, and
-        one or two conversations with your faculty advisor. You may also find
-        that you have done some of the work in this tool... that\'s great!
-        Complete the worksheets in order, and use the "questions to consider"
+        You do not need to finish all four steps at once -- it\'s probably 
+        better to divide this work over several weeks, and
+        one or two conversations with your faculty advisor. You may find
+        that you have already done some of the work in this tool... that\'s great!
+        Complete the worksheets in order, and use the "Questions to Consider"
         as a way to rethink some of your work.') . '</p>
-        <p>' . t('Your progress will be saved both on the list above and in
+        <p>' . t('Your progress will be on the list above and in
         your user profile under ') . l(t('Achievements'), 'user/' .
         $user->uid .'/achievements') . t('. You will also be able to see
-        your answers to the "moving forward" worksheets in your user profile
+        your answers to the "Moving Forward" worksheets in your user profile
         under ') . l(t('Planning Tool'), 'user/' . $user->uid . '/planning-tool') .
         t('. Initiative faculty and staff will be able to
         see this as well.') . '</p></div>',
@@ -118,17 +118,17 @@ function goodman_planning_tool_step1_page() {
         curriculum as your approach to content and programing this summer.
         This will be the theme that guides you in your selection of programs
         from the database, how you adapt these programs, and how you might
-        rethink programming that you are already doing at camp.') . '</p>',
+        rethink programming that already happens at camp.') . '</p>',
     ),
     'note' => array(
       '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
-        <div class="note-body"> ' . t('The purpose of a thematic approach is to
-        assist in organizing educational programming, not to complicate it. As we
+        <div class="note-body"> ' . t('The thematic approach  should help you to organize 
+        educational programming, not complicate it. As we
         discussed at the Israel Seminar, THEMES help us better organize our SUBJECTS, to
         more fully teach and express our VALUES. The Initiative themes - while
         specific to Modern Israel History - are broad enough to reflect many of the
-        themes we already teach at camp.') . '</div>',
+        themes we already address at camp.') . '</div>',
       '#prefix' => '<div class="note">',
       '#suffix' => '</div>',
     ),
@@ -165,7 +165,7 @@ function goodman_planning_tool_step1_prepare_page() {
       '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
         <div class="note-body"> ' . t('If you haven\'t spent much time
-        exploring the database of activities, this would be a good time to
+        exploring the database of activities, this is a good time to
         start! Links below will organize content by themes, and will open
         in new windows so that you can keep your place in the tool.') . '</div>',
       '#prefix' => '<div class="note">',
@@ -173,10 +173,10 @@ function goodman_planning_tool_step1_prepare_page() {
     ),    
     'prepare-list' => array(
       '#items' => array(
-        l(t('Read the Initiative themes'), 'themes-values', array('attributes' => array('target'=>'_blank'))) . t(' and reflect on them as they relate to you
+        l(t('Review the Initiative themes'), 'themes-values', array('attributes' => array('target'=>'_blank'))) . t(' and reflect on them as they relate to you
           and your camp.'), 
         l(t('Sort the database by themes'), 'sort/theme', array('attributes' => array('target'=>'_blank'))) . t(' and browse the programs under each theme.'),
-        t('Note that many programs do appear under multiple themes.')
+        t('Note that many programs appear under multiple themes.')
       ),
     '#theme' => 'item_list',
     ),
@@ -209,8 +209,8 @@ function goodman_planning_tool_step1_consider_page() {
       '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
         <div class="note-body"> ' . t('It is important
-        that you consider these questions (and the others in this category) carefully,
-        but that you do not get stuck on them. These questions are supposed to help you
+        to consider these questions (and the others in this category) carefully,
+        but don\'t get stuck on them. These questions are designed to help you
         consider issues, but should not be "process blockers."') . '</div>',
       '#prefix' => '<div class="note">',
       '#suffix' => '</div>',
@@ -221,12 +221,12 @@ function goodman_planning_tool_step1_consider_page() {
           camp?'), 
         t('Are there themes that are similar to other thematic programs or
           offerings that exist in your camp?'),
-        t('How might themes look differently across different age groups in
+        t('How might themes look different across age groups in
           camp?'),
-        t('Could you imagine these themes working sequentially in your
+        t('Could these themes work sequentially in your
           camp year after year? If so, how might you order a three-year plan?
           A five-year plan?'),
-        t('Could you see a way in which multiple themes might work together
+        t('Could multiple themes might work together
           during one summer? What might be the strengths and challenges of
           such an approach?'),        
       ),
@@ -262,7 +262,7 @@ function goodman_planning_tool_step1_forward_page() {
         saved in your user profile under ') . l(t('Planning Tool'), 'user/' .
         $user->uid . '/planning-tool') .
         t('. Initiative faculty and staff will be able to
-        see this as well.') . '</div>',
+        see this.') . '</div>',
       '#prefix' => '<div class="note">',
      'note' => array(
       '#type' => 'markup',
@@ -296,10 +296,11 @@ function goodman_planning_tool_step2_page() {
         "mapped" Israel in your camps and explored areas that are fertile
         ground for creating and implementing Israel programming. These
         inventories will be helpful in identifying areas where you can both
-        identify things that you are already doing that will contribute to
-        your thematic approach, and find areas where you can easily create
-        new programs.') . '</p>',
+        identify existing activities that you are already doing that will contribute to
+        your thematic approach, and also find areas where you can create
+        new programs easily.') . '</p>',
     ),
+    //@todo FIX THIS
      'note' => array(
       '#type' => 'markup',
       '#markup' => '<h3 class="note-header">Note:</h3> 
@@ -331,10 +332,10 @@ function goodman_planning_tool_step2_prepare_page() {
       '#items' => array(
         t('Revisit the mapping exercise that you did in the December Workshop
           (or last year) to remember where you mapped Israel in you camp. '), 
-        t('Look in the database under your chosen theme to be aware of the
-          suggested settings for some of the written activities.'),
-        t('Create an inventory of the "tried and true" Israel programs that
-          you already do at your camp -- programs that you want to continue to
+        t('Look in the database under your chosen theme and review the suggested
+          settings for some of the activities.'),
+        t('Create an inventory of  "tried and true" Israel programs that
+          you already do at camp -- programs that you want to continue to
           do in the future.'),
       ),
       '#theme' => 'item_list',
@@ -371,7 +372,7 @@ function goodman_planning_tool_step2_consider_page() {
         t('How might themes look differently across different age groups in
           camp?'),
         t('Where is really good Israel programming already taking place at
-          your camp?'),
+          camp?'),
         t('How can the theme(s) you chose work within those settings?'),        
       ),
     '#theme' => 'item_list',
@@ -423,10 +424,10 @@ function goodman_planning_tool_step3_page() {
   $output =  array(
     'introduction' => array(
       '#type' => 'markup',
-      '#markup' => '<p>' . t('The Initiative requires that you create
-        programming space for two hours each week per camper across your
-        age groups (except for the youngest age groups, for which only one
-        hour per week is required). The goal of this requirement is to create
+      '#markup' => '<p>' . t('The Initiative requires that all campers
+        experience two hours of programming per week (except for the
+        youngest campers, who must experience only one 
+        hour per week). The goal of this requirement is to create
         a camp-wide approach to Israel education that is achievable within
         your camp framework.') . '</p>',
     ),
@@ -451,11 +452,12 @@ function goodman_planning_tool_step3_prepare_page() {
   $output =  array(
     'prepare-list' => array(
       '#items' => array(
-        t('Evaluate the "settings and resources" from step two and determine
-          where you might like to introduce new programming at camp. Decide
-          what is realistic on your list of "fertile ground."  -->Click here  to see them//place buttons at the bottom'), 
-        t('Have a conversation with the person/people at your camp who "hold
-          the schedule" to ensure that they understand the Initiative
+        t('Evaluate the ' . l(t('"Settings and Resources"'),
+          'user/' . $user->uid . '/planning-tool') . ' from step two and determine
+          where you want to introduce new programming at camp this summer. Decide
+          what is realistic on your list of "fertile ground."'), 
+        t('Have a conversation with the person/people at your camp who oversee
+          the schedule to ensure that they understand the Initiative
           requirements and where you need space to be reserved in the
           schedule.'),
       ),
@@ -490,8 +492,9 @@ function goodman_planning_tool_step3_consider_page() {
       '#items' => array(
         t('How many programs do we need to implement in order to fulfill
           the Initiative requirements? Is this realistic for my team?'), 
-        t('Where are my strengths and weaknesses across age groups? Do I need
-          to adjust expectations in recognition of these? '),
+        t('Where do I see strengths and weaknesses across age groups? Do I need
+          to seek additional staff support and/or
+          adjust expectations in recognition of these? '),
         t('How can I use various settings to my advantage (specialties, bunk
           time, Shabbat, etc.) to be able to fulfill requirements that may be
           difficult to fulfill elsewhere?'),
@@ -548,11 +551,11 @@ function goodman_planning_tool_step4_page() {
     'introduction' => array(
       '#type' => 'markup',
       '#markup' => '<p>' . t('After you complete the first three steps, you
-        should have a strong foundation for choosing programs. This final step
-        will require you to have a broad familiarity with the programs in the
+        should have a strong foundation for choosing programs. For this final step,
+        you should have a broad familiarity with the programs in the
         database, particularly around the theme (or themes) that you have
         chosen for the summer. Return to the database with an eye toward
-        selecting programs that will help you satisfy your goals as you work
+        selecting programs that will help you fulfill your goals as you work
         to create a comprehensive programming plan for the summer.  ') . '</p>',
     ),
     'main_link' => array(
@@ -581,7 +584,7 @@ function goodman_planning_tool_step4_prepare_page() {
         t('Review, again, the programs in the database under your selected
           theme(s), and create a list of programs that you believe are
           "good candidates" for implementation/adaptation.'),
-        t('As you create a preliminary list, note also the subjects that these
+        t('As you create a preliminary list, note the subjects that these
           activities address. Keep a parallel list of these subjects.'),
          t('Review, again, the programs outside your selected theme(s) to
            find any programs that may be complementary.'),
@@ -619,18 +622,20 @@ function goodman_planning_tool_step4_consider_page() {
       '#items' => array(
         t('Which programs on my lists will be easy to create/adapt? Which are
           more challenging?'), 
-        t('Do you have ideas for programs that do not appear in the  database
-          and do not already exist at your camp that you would like to create
+        t('Do you have ideas for programs that do not appear in the database
+          and do not already exist at camp that you would like to create
           (either as part of a matching grant program or on your own)?'),
         t('Are there common subjects among these programs, or does each
           program address a different subject? Can some of these programs be
-          re-tooled to address similar subjects?'),
+          adjusted to address similar subjects?'),
         t('Does your list include an appropriate number of activities for each
           age group that you intend to reach?'),
         t('Does your list allow you to utilize the settings that you
           intended?'),
         ),
-    '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#attributes' => array('class' => 'custom-class'),
+      '#theme' => 'item_list',
     ),
     'back_link' => array(
       '#type' => 'markup',
@@ -767,21 +772,49 @@ function goodman_planning_tool_user_page() {
     );        
   }
 
-  if (achievements_unlocked_already('step-4', $user->uid)) {
-    $output['step-4'] = array(
+  if (achievements_unlocked_already('step-4', $user->uid)) {  
+    $program_name = unserialize($query_select['step4_q1']);
+    $program_setting = unserialize($query_select['step4_q2']);
+    $program_adaptation = unserialize($query_select['step4_q3']);
+    $program_subjects = unserialize($query_select['step4_q4']);
+
+    $count_array = count($program_name);
+    if ($count_array == 0) {
+      $count_array++;
+    }
+    
+    $output['table-start'] = array(
       '#type' => 'markup',
-      '#markup' => '<div class="step-3"><h2>Step #4</h2>
-        <div class="step-question">These are the programs that we plan to create/adapt at camp this summer:</div>
-        <div class="step-answer">' . $query_select['step4_q1'] . '</div>
-        <div class="step-question">These are the subjects that our programs will cover:</div>
-        <div class="step-answer">' . $query_select['step4_q2'] . '</div>
-        <div class="step-question">The following programs will require significant adaptation for our camp:</div>
-        <div class="step-answer">' . $query_select['step4_q3'] . '</div>
-        <div class="step-question">The following programs will require little/or no adaptation for our camp:</div>
-        <div class="step-answer">' . $query_select['step4_q4'] . '</div>
-        <div class="step-question">The following settings will be utilized at camp:</div>
-        <div class="step-answer">' . $query_select['step4_q5'] . '</div>
-        </div>',  
+      '#markup' => '<div class="step-4"><h2>Step #4</h2>
+      <table>
+      <tr><th>Program</th><th>Setting</th><th>Adaptation</th><th>Subjects</th><tr>',  
+    );
+    
+    $row_class = 'even';
+    
+    for ($i = 1; $i <= $count_array; $i++) {
+      if($i%2 == 0)
+      {
+         $row_class = 'even';
+      }
+      else
+      {
+         $row_class = 'odd';
+      }
+      
+      $output['row' .$i] = array(
+        '#type' => 'markup',
+        '#markup' => '<tr class="' . $row_class . '"><td>' .
+        $program_name[$i] . '</td><td>' .
+        $program_setting[$i] . '</td><td>' .
+        $program_adaptation[$i] . '</td><td>' .
+        $program_subjects[$i] . '</td></tr>',
+      );
+    }
+
+    $output['table-end'] = array(
+      '#type' => 'markup',
+      '#markup' => '</table>',  
     );
   } else {
     $output['step-4'] = array(
