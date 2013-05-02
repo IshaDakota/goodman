@@ -748,17 +748,17 @@ function goodman_planning_tool_step4_forward_page() {
 }
 
 function goodman_planning_tool_user_page() {
-    global $user; //Get the current user.
+   $userid = arg(1); //Get the user of the page we are on..
 
   $query_select = db_select('gpt') //Query the database to see of the user has a record.
   ->fields('gpt')
-  ->condition('uid', $user->uid, '=')
+  ->condition('uid', $userid, '=')
   ->execute()
   ->fetchAssoc();
   
   $output =  array();
   
-  if (achievements_unlocked_already('step-1', $user->uid)) {
+  if (achievements_unlocked_already('step-1', $userid)) {
     $output['step-1'] = array(
       '#type' => 'markup',
       '#markup' => '<div class="step-1"><h2>Step #1</h2>
@@ -779,7 +779,7 @@ function goodman_planning_tool_user_page() {
     );        
   }
 
-  if (achievements_unlocked_already('step-2', $user->uid)) {  
+  if (achievements_unlocked_already('step-2', $userid)) {  
     $output['step-2'] = array(
       '#type' => 'markup',
       '#markup' => '<div class="step-2"><h2>Step #2</h2>
@@ -800,7 +800,7 @@ function goodman_planning_tool_user_page() {
     );    
   }
 
-  if (achievements_unlocked_already('step-3', $user->uid)) {  
+  if (achievements_unlocked_already('step-3', $userid)) {  
     $output['step-3'] = array(
       '#type' => 'markup',
       '#markup' => '<div class="step-3"><h2>Step #3</h2>
@@ -821,7 +821,7 @@ function goodman_planning_tool_user_page() {
     );        
   }
 
-  if (achievements_unlocked_already('step-4', $user->uid)) {  
+  if (achievements_unlocked_already('step-4', $userid)) {  
     $program_name = unserialize($query_select['step4_q1']);
     $program_setting = unserialize($query_select['step4_q2']);
     $program_adaptation = unserialize($query_select['step4_q3']);

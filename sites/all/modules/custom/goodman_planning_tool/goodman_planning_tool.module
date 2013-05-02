@@ -31,7 +31,9 @@ function goodman_planning_tool_menu() {
       'description' =>    'Goodman Initiative Program Planning Tool.',
       'page callback' =>  'goodman_planning_tool_page',
       'file' =>           'goodman_planning_tool.pages.inc',
+      'menu_name'       => 'main-menu',
       'access arguments' => array('access planning tool'),
+      'type' => MENU_NORMAL_ITEM,
     ),
     'program-planning-tool/step-1' => array(
       'title' => 'Step One: Choose a Thematic Approach',
@@ -146,7 +148,7 @@ function goodman_planning_tool_menu() {
       'access arguments' => array('access planning tool'),
     ),
     'user/%user/planning-tool' => array(
-      'access arguments'  => array('access planning tool'),
+      'access callback'  => goodman_planning_tool_user_page_access,
       'description'       => "View a specific user's Planning Tool answers.",
       'file'              => 'goodman_planning_tool.pages.inc',
       'page callback'     => 'goodman_planning_tool_user_page',
@@ -156,6 +158,15 @@ function goodman_planning_tool_menu() {
     ),
   );
   return $items;
+}
+function goodman_planning_tool_user_page_access() {
+  global $user;
+  if (arg(0) == 'user' && $user->uid == arg(1) || in_array('faculty', array_values($user->roles))){
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
 }
 
 /**

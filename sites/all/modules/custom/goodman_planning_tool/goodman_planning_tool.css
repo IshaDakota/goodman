@@ -93,7 +93,7 @@ ul.quest-list li.quest-achieved a {
   display: block;
 }
 
-#step3-image img {
+#step3-image img, #step4-image {
   margin: 0 auto;
   display: block;
 }
