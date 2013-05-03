@@ -44,7 +44,7 @@ function goodman_planning_tool_page() {
         <li><b>' . t('Questions to Consider: ') . '</b>' . t('These may require some thought or
                   consultation with other camp staff or your faculty advisor.') . '
         <li><b>' . t('Moving Forward: ') . '</b>' . t('In this section, you will complete a worksheet with
-                  to set out your plann for the summer. This workshhet
+                  to set out your plan for the summer. This worksheet
                   will be saved so that you can use it as you continue planning.') . '
         </ol>
         </p>',
