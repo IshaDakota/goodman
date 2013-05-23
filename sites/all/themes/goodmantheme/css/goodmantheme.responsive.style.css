@@ -55,20 +55,21 @@
   #branding {
     width: 55%;
   }
-.region-header {
-    clear: none;
-    float: right;
-    max-width: 40%;  
-}
+  .region-header {
+      clear: none;
+      float: right;
+      max-width: 40%;  
+  }
   #search-form input#edit-keys, #block-search-form .form-item-search-block-form input {
     width: 60%;
+  }
 }
 
 /* Tablet landscape */
 @media only screen and (min-width:769px) and (max-width:1024px) {
-#branding {
-  width: 50%;
-} 
+  #branding {
+    width: 50%;
+  } 
   #block-block-2 {
     float: right;
     width: 40%;
