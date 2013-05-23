@@ -8,16 +8,148 @@
  * as well.
  */
 
+#menu-bar ul a, #menu-bar ul a:visited {
+    color: #E7E7E7;
+}
+
+#menu-bar ul a:hover, #menu-bar ul a:focus {
+    color: #373737;
+}
+
+/* Header - Logo & Branding */
+#branding {
+    margin: 0 0 10px;
+}
+
+.region-header {
+    margin: 20px 0;
+}
+
+/* Start comment out
 h1#site-name {
     font-size: 2.692em;
     margin: 0.3em 0;
     padding: 0;
 }
 
+#logo {
+    float: left;
+  }
+
+
+
+h2#site-slogan {
+    font-size: 1.5em;
+}
+End comment out */
+
+/* User Login block in the header region */
+.region-header #block-user-login h2,
+.region-header #block-system-user-menu h2 {
+  display: none;
+}
+
+/* Start comment out
+.region-header #block-user-login {
+    width: 100%;
+}
+
+.region-header #block-user-login .content {
+  margin-top: 2px;
+}
+.region-header #block-user-login .form-item {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.region-header #block-user-login div.item-list,
+.region-header #block-user-login div.description {
+  font-size: 0.916em;
+  margin: 0;
+}
+.region-header #block-user-login div.item-list {
+  clear: both;
+}
+.region-header #block-user-login div.description {
+  display: inline;
+}
+.region-header #block-user-login .item-list ul,
+.region-header #block-system-user-menu ul {
+  padding: 0;
+  line-height: 1;
+}
+.region-header #block-user-login .item-list li,
+.region-header #block-system-user-menu li{
+  list-style: none;
+  float: none;
+  padding: 3px 5px 1px;
+}
+.region-header #block-user-login .item-list li.last {
+  padding-left: 0.5em; 
+}
+.region-header #block-user-login ul.openid-links li.last {
+  padding-left: 0; 
+}
+.region-header #user-login-form li.openid-link a,
+.region-header #user-login li.openid-link a {
+  padding-left: 20px;
+}
+.region-header #block-user-login .form-actions {
+  margin: 4px 0 0;
+  padding: 0;
+  clear: both;
+}
+.region-header #block-user-login input.form-submit {
+  border: 1px solid;
+  border-color: #ccc;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: #eee;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+  padding: 3px 8px;
+}
+.region-header #block-user-login input.form-submit:hover,
+.region-header #block-user-login input.form-submit:focus {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+
+.region-header #block-user-login div.form-item label {
+  color: #4F7302;
+  font-size: 0.8em
+}
+
+.region-header #block-user-login div.item-list {
+  clear: none;
+}
+
+.region-header #block-user-login div.item-list li a {
+  color: #4F7302;
+  font-size: 0.8em;
+}
+
+.region-header #block-user-login .form-actions {
+  position: absolute;
+  margin: 15px 0 0 5px;
+  display: inline;
+}
+
+.region-header #block-search-form {
+  margin: 10px 0 0;
+  width: 245px;
+  clear: both;
+}
+.region-header #block-search-form .form-text {
+  width: 154px;
+}
+
+End comment out */
+
 /* Feild Layout */
 .field .field-item {
   padding: 0.5em 1.5em 0;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.6;
 }
 .field .field-label {
@@ -97,18 +229,8 @@ article .field-type-taxonomy-term-reference ul.field-items li a:active {
     border-top: 0 none;
     margin: 0;
     padding: 0 0 1em;
-}  
-  
-#logo {
-    float: left;
-  }
-#branding {
-  /* width: 70%; */
 }
 
-h2#site-slogan {
-    font-size: 1.5em;
-}
 
 .field-type-image figure {
   display: inline-block;
@@ -147,22 +269,36 @@ h2#site-slogan {
 }
 
 #block-block-2 {
-  float: right;
-  width: 40%;
+  width: 100%;
   clear: none;
-  display: inline-block;
 }
 
 #block-views-80df5bfa2e8b5898d1fe7884b30364a3{
-  float: left;
-  width: 50%;
+  width: 85%;
+  margin: 0 auto 30px;
 }
 
+
+.columns-inner {
+    box-shadow: 0px 10px 8px 0px #7F7F7F;
+}
+
+/* Front Page Highlighted Region */
+
+.page-sort-advanced-filters #content-column,
+.front #content-column {
+    margin-top: 0;
+}
+
+.page-sort-advanced-filters .columns-inner,
+.front .columns-inner {
+    padding-top: 0;    
+}
 .region-highlighted {
-  background-color: #56ADAB;
+  background-color: #26746A;
   margin: 0 0 3em;
   padding: 2em 0;
-  box-shadow: 0px 3px 20px 2px #7F7F7F;
+  box-shadow: 0px 10px 8px 0px #7F7F7F;
 }
 
 .region-highlighted:after {
@@ -178,106 +314,6 @@ h2#site-slogan {
 }
 
 
-/* User Login block in the header region */
-.region-header #block-user-login {
-  width: auto;
-}
-.region-header #block-user-login h2,
-.region-header #block-system-user-menu h2 {
-  display: none;
-}
-
-.region-header #block-user-login .content {
-  margin-top: 2px;
-}
-.region-header #block-user-login .form-item {
-  float: left; /* LTR */
-  margin: 0;
-  padding: 0;
-}
-.region-header #block-user-login div.item-list,
-.region-header #block-user-login div.description {
-  font-size: 0.916em;
-  margin: 0;
-}
-.region-header #block-user-login div.item-list {
-  clear: both;
-}
-.region-header #block-user-login div.description {
-  display: inline;
-}
-.region-header #block-user-login .item-list ul,
-.region-header #block-system-user-menu ul {
-  padding: 0;
-  line-height: 1;
-}
-.region-header #block-user-login .item-list li,
-.region-header #block-system-user-menu li{
-  list-style: none;
-  float: left; /* LTR */
-  padding: 3px 5px 1px;
-}
-.region-header #block-user-login .item-list li.last {
-  padding-left: 0.5em; /* LTR */
-}
-.region-header #block-user-login ul.openid-links li.last {
-  padding-left: 0; /* LTR */
-}
-.region-header #user-login-form li.openid-link a,
-.region-header #user-login li.openid-link a {
-  padding-left: 20px; /* LTR */
-}
-.region-header #block-user-login .form-actions {
-  margin: 4px 0 0;
-  padding: 0;
-  clear: both;
-}
-.region-header #block-user-login input.form-submit {
-  border: 1px solid;
-  border-color: #ccc;
-  border-color: rgba(255, 255, 255, 0.5);
-  background: #eee;
-  background: rgba(255, 255, 255, 0.7);
-  margin: 10px 0;
-  padding: 3px 8px;
-}
-.region-header #block-user-login input.form-submit:hover,
-.region-header #block-user-login input.form-submit:focus {
-  background: #fff;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-/* line 26, ../sass/badgeland_demo.scss */
-.region-header #block-user-login div.form-item label {
-  color: #4F7302;
-  font-size: 0.8em
-}
-/* line 30, ../sass/badgeland_demo.scss */
-.region-header #block-user-login div.item-list {
-  clear: none;
-}
-/* line 32, ../sass/badgeland_demo.scss */
-.region-header #block-user-login div.item-list li a {
-  color: #4F7302;
-  font-size: 0.8em;
-}
-/* line 36, ../sass/badgeland_demo.scss */
-.region-header #block-user-login .form-actions {
-  position: absolute;
-  margin: 15px 0 0 5px;
-  display: inline;
-}
-
-/* Search block in region header. */
-.region-header #block-search-form {
-  margin: 10px 0 0;
-  width: 245px;
-  clear: both;
-}
-.region-header #block-search-form .form-text {
-  width: 154px;
-}
-
 #search-block-form input.form-submit {
     margin-top: 4px;
 }
@@ -292,12 +328,19 @@ h2#site-slogan {
   font-size: 1.2em;
 }
 
+#block-block-2 h2 {
+    font-family: Arial,Helvetica,sans-serif;
+    color: #FFFFFF;
+    font-size: 1.32em;
+    line-height: 1.2;
+}
+
 #block-block-2 input.form-text {
 width: 75%;
 }
 
 #block-block-2 a, #block-block-2 a:visited {
-  color: #333333;
+  color: #e7e7e7;
 }
 
 .print-link {
@@ -342,3 +385,16 @@ width: 75%;
     margin: 0 1em 0 0;
 }
 */
+
+.region-header .block {
+    clear: both;
+    margin: 5px 0;
+}
+
+#search-form input#edit-keys, #block-search-form .form-item-search-block-form input {
+    width: 70%;
+}
+
+#search-block-form input.form-submit, #search-form input.form-submit {
+    float: right;
+}
