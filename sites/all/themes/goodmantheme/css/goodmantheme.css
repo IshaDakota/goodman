@@ -172,6 +172,7 @@ End comment out */
 }
 article .tags, .article-content .field-type-taxonomy-term-reference {
   border: none;
+  clear: both;
   display: block;
   font-style: normal;
   margin: 0;
@@ -357,15 +358,20 @@ width: 75%;
     margin: 0 3px 0 0;
 }
 
-.article-content .field-name-field-catalogue-image {
-    display: inline;
+.article-content .field-name-field-catalog-image {
     float: left;
+    margin: 0 1.5em 0 0;
+}
+
+.article-content .field-name-field-catalog-image figure {
+    padding: 0.5em 1.5em 0;
 }
 
 .article-content .field-name-body {
-    display: inline;
-    float: left;
+    /*display: inline;
+    float: left; */
 }
+
 
 /*
 #block-system-user-menu h2, #block-user-login h2 {
@@ -397,4 +403,9 @@ width: 75%;
 
 #search-block-form input.form-submit, #search-form input.form-submit {
     float: right;
+}
+
+input[type=search] {
+   -moz-appearance:none;
+   -webkit-appearance:none;
 }

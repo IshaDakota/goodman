@@ -10,7 +10,7 @@
 function curriculum_content_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-curriculum_content-body'
+  // Exported field: 'node-curriculum_content-body'.
   $fields['node-curriculum_content-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -42,14 +43,14 @@ function curriculum_content_field_default_fields() {
       'bundle' => 'curriculum_content',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Provide a description for this activity that will be used to reference it in lists and views on the site.',
+      'description' => 'Using no more than 50 words, please write an “invitation-pitch” for this activity to the campers.  What can they expect to do and learn?  ',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -58,7 +59,7 @@ function curriculum_content_field_default_fields() {
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
-          'weight' => 0,
+          'weight' => '1',
         ),
       ),
       'entity_type' => 'node',
@@ -78,12 +79,12 @@ function curriculum_content_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_activity_explanation'
+  // Exported field: 'node-curriculum_content-field_activity_explanation'.
   $fields['node-curriculum_content-field_activity_explanation'] = array(
     'field_config' => array(
       'active' => '1',
@@ -104,6 +105,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -125,18 +127,18 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '13',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '16',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_activity_explanation',
-      'label' => 'Activity Explanation',
+      'label' => 'Explanation',
       'required' => 0,
       'settings' => array(
         'text_processing' => '1',
@@ -149,12 +151,12 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '16',
+        'weight' => '17',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_activity_intro'
+  // Exported field: 'node-curriculum_content-field_activity_intro'.
   $fields['node-curriculum_content-field_activity_intro'] = array(
     'field_config' => array(
       'active' => '1',
@@ -175,6 +177,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -195,18 +198,18 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '15',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_activity_intro',
-      'label' => 'Activity Introduction',
+      'label' => 'Introduction',
       'required' => 0,
       'settings' => array(
         'text_processing' => '1',
@@ -219,12 +222,12 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '15',
+        'weight' => '16',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_activity_variations'
+  // Exported field: 'node-curriculum_content-field_activity_variations'.
   $fields['node-curriculum_content-field_activity_variations'] = array(
     'field_config' => array(
       'active' => '1',
@@ -245,6 +248,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -261,13 +265,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '18',
         ),
       ),
       'entity_type' => 'node',
@@ -285,12 +289,12 @@ function curriculum_content_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '18',
+        'weight' => '19',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_activity_wrapup'
+  // Exported field: 'node-curriculum_content-field_activity_wrapup'.
   $fields['node-curriculum_content-field_activity_wrapup'] = array(
     'field_config' => array(
       'active' => '1',
@@ -311,6 +315,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -331,18 +336,18 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '14',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '19',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_activity_wrapup',
-      'label' => 'Activity Wrap-Up',
+      'label' => 'Wrap-Up',
       'required' => 0,
       'settings' => array(
         'text_processing' => '1',
@@ -355,12 +360,12 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '17',
+        'weight' => '18',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_age_campers'
+  // Exported field: 'node-curriculum_content-field_age_campers'.
   $fields['node-curriculum_content-field_age_campers'] = array(
     'field_config' => array(
       'active' => '1',
@@ -381,6 +386,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -405,13 +411,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '8',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '10',
         ),
       ),
       'entity_type' => 'node',
@@ -426,12 +432,12 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '10',
+        'weight' => '9',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_attribution'
+  // Exported field: 'node-curriculum_content-field_attribution'.
   $fields['node-curriculum_content-field_attribution'] = array(
     'field_config' => array(
       'active' => '1',
@@ -452,6 +458,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -470,13 +477,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '18',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'node',
@@ -494,12 +501,12 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '22',
+        'weight' => '23',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_background'
+  // Exported field: 'node-curriculum_content-field_background'.
   $fields['node-curriculum_content-field_background'] = array(
     'field_config' => array(
       'active' => '1',
@@ -520,6 +527,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -532,17 +540,16 @@ function curriculum_content_field_default_fields() {
       'description' => 'Material knowledge for staff suggested or required for program implantation.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'text',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '16',
+          'type' => 'hidden',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '2',
         ),
       ),
       'entity_type' => 'node',
@@ -560,12 +567,241 @@ function curriculum_content_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '13',
+        'weight' => '14',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_curriculum_themes'
+  // Exported field: 'node-curriculum_content-field_catalog_image'.
+  $fields['node-curriculum_content-field_catalog_image'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_catalog_image',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => '191',
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'curriculum_content',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'catalog_image',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'catalog_image',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_catalog_image',
+      'label' => 'Catalog Image',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'media',
+        'settings' => array(
+          'allowed_schemes' => array(
+            'public' => 'public',
+          ),
+          'allowed_types' => array(
+            'audio' => 0,
+            'default' => 0,
+            'image' => 'image',
+            'video' => 0,
+          ),
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'media_generic',
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-curriculum_content-field_central_ideas'.
+  $fields['node-curriculum_content-field_central_ideas'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_central_ideas',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '1000',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'curriculum_content',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '8',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_central_ideas',
+      'label' => 'Essential Questions',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '100',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '12',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-curriculum_content-field_core_learnings'.
+  $fields['node-curriculum_content-field_core_learnings'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_core_learnings',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '1000',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'curriculum_content',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Please list 1-3 core learnings we want the campers to take away from this activity (click "add another item" for each discrete learning objective).',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '8',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '9',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_core_learnings',
+      'label' => 'Core Learnings',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '100',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '11',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-curriculum_content-field_curriculum_themes'.
   $fields['node-curriculum_content-field_curriculum_themes'] = array(
     'field_config' => array(
       'active' => '1',
@@ -586,6 +822,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -616,7 +853,7 @@ function curriculum_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '5',
         ),
       ),
       'entity_type' => 'node',
@@ -636,7 +873,7 @@ function curriculum_content_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_gender'
+  // Exported field: 'node-curriculum_content-field_gender'.
   $fields['node-curriculum_content-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -650,6 +887,7 @@ function curriculum_content_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -670,16 +908,15 @@ function curriculum_content_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '5',
+          'type' => 'hidden',
+          'weight' => '20',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '20',
         ),
       ),
       'entity_type' => 'node',
@@ -692,14 +929,16 @@ function curriculum_content_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'content_taxonomy_opt_groups' => FALSE,
+        ),
         'type' => 'options_select',
-        'weight' => '7',
+        'weight' => '6',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_image'
+  // Exported field: 'node-curriculum_content-field_image'.
   $fields['node-curriculum_content-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -720,6 +959,7 @@ function curriculum_content_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -745,13 +985,13 @@ function curriculum_content_field_default_fields() {
             'colorbox_node_style' => 'thumbnail',
           ),
           'type' => 'colorbox',
-          'weight' => '17',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -786,78 +1026,12 @@ function curriculum_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '19',
+        'weight' => '20',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_israel_me'
-  $fields['node-curriculum_content-field_israel_me'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_israel_me',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'How does this activity or experiential learning relate to the overall theme of Israel and Me?',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '1',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_israel_me',
-      'label' => 'Israel & Me',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_learning_objectives'
+  // Exported field: 'node-curriculum_content-field_learning_objectives'.
   $fields['node-curriculum_content-field_learning_objectives'] = array(
     'field_config' => array(
       'active' => '1',
@@ -878,6 +1052,7 @@ function curriculum_content_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '1000',
@@ -893,21 +1068,20 @@ function curriculum_content_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '10',
+          'type' => 'hidden',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '12',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_learning_objectives',
-      'label' => 'Learning Objectives',
+      'label' => 'Learning Objectives (Deprecated)',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -920,12 +1094,12 @@ function curriculum_content_field_default_fields() {
           'size' => '100',
         ),
         'type' => 'text_textfield',
-        'weight' => '12',
+        'weight' => '13',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_materials'
+  // Exported field: 'node-curriculum_content-field_materials'.
   $fields['node-curriculum_content-field_materials'] = array(
     'field_config' => array(
       'active' => '1',
@@ -946,6 +1120,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -970,13 +1145,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '9',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '13',
         ),
       ),
       'entity_type' => 'node',
@@ -995,12 +1170,12 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'autocomplete_deluxe_taxonomy',
-        'weight' => '11',
+        'weight' => '10',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_number_campers'
+  // Exported field: 'node-curriculum_content-field_number_campers'.
   $fields['node-curriculum_content-field_number_campers'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1021,6 +1196,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1045,13 +1221,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '7',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '11',
         ),
       ),
       'entity_type' => 'node',
@@ -1066,12 +1242,12 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '9',
+        'weight' => '8',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_program_duration'
+  // Exported field: 'node-curriculum_content-field_program_duration'.
   $fields['node-curriculum_content-field_program_duration'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1092,6 +1268,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1122,7 +1299,7 @@ function curriculum_content_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '17',
         ),
       ),
       'entity_type' => 'node',
@@ -1137,12 +1314,12 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '6',
+        'weight' => '5',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_space'
+  // Exported field: 'node-curriculum_content-field_space'.
   $fields['node-curriculum_content-field_space'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1163,6 +1340,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1187,13 +1365,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '6',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '14',
         ),
       ),
       'entity_type' => 'node',
@@ -1212,12 +1390,12 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'autocomplete_deluxe_taxonomy',
-        'weight' => '8',
+        'weight' => '7',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_subjects'
+  // Exported field: 'node-curriculum_content-field_subjects'.
   $fields['node-curriculum_content-field_subjects'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1238,6 +1416,7 @@ function curriculum_content_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1262,13 +1441,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '11',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '6',
         ),
       ),
       'entity_type' => 'node',
@@ -1287,12 +1466,12 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'autocomplete_deluxe_taxonomy',
-        'weight' => '14',
+        'weight' => '15',
       ),
     ),
   );
 
-  // Exported field: 'node-curriculum_content-field_supporting_materials'
+  // Exported field: 'node-curriculum_content-field_supporting_materials'.
   $fields['node-curriculum_content-field_supporting_materials'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1313,6 +1492,7 @@ function curriculum_content_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
@@ -1332,13 +1512,13 @@ function curriculum_content_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
-          'weight' => '19',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '7',
         ),
       ),
       'entity_type' => 'node',
@@ -1366,73 +1546,7 @@ function curriculum_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '20',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_themes_narative'
-  $fields['node-curriculum_content-field_themes_narative'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_themes_narative',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Briefly describe the key connections to the above curriculum themes, which may be helpful for the Educator to understand while preparing this activity.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '3',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_themes_narative',
-      'label' => 'Themes Narrative',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '5',
+        'weight' => '21',
       ),
     ),
   );
@@ -1455,36 +1569,36 @@ function curriculum_content_field_default_fields() {
 <li>Is there an effective “hook” to do to grab the attention of the campers early on? If so, please describe that hook in detail.
 <li>Is there an opening set of questions to ask the campers? If so, please list a few sample questions to help introduce this topic.
 </ol>');
-  t('Activity Explanation');
-  t('Activity Introduction');
-  t('Activity Wrap-Up');
   t('Age of Campers');
   t('Attribution');
   t('Background Information');
-  t('Briefly describe the key connections to the above curriculum themes, which may be helpful for the Educator to understand while preparing this activity.');
+  t('Catalog Image');
   t('Check all that apply.');
+  t('Core Learnings');
   t('Curricular Subjects');
   t('Curriculum Themes');
   t('Describe how the leader can vary this activity/learning for various ages, genders, or size of groups.');
   t('Description');
+  t('Essential Questions');
+  t('Explanation');
   t('Gender');
-  t('How does this activity or experiential learning relate to the overall theme of Israel and Me?');
   t('Ideal length of this experiential learning from start to finish:');
+  t('Introduction');
   t('Is there a gender in mind when designing this program');
-  t('Israel & Me');
-  t('Learning Objectives');
+  t('Learning Objectives (Deprecated)');
   t('Material knowledge for staff suggested or required for program implantation.');
   t('Materials Required');
   t('Number of Campers');
   t('Physical Space');
   t('Please choose all the necessary equipment and materials needed to facilitate this activity successfully (you may add new materials to the list, but do so only after looking at the entire list). ');
+  t('Please list 1-3 core learnings we want the campers to take away from this activity (click "add another item" for each discrete learning objective).');
   t('Please list 1-3 learning objectives we want the campers to take away from this activity (click "add another item" for each discrete learning objective).');
   t('Program Duration');
-  t('Provide a description for this activity that will be used to reference it in lists and views on the site.');
   t('Supporting Images');
   t('Supporting Materials');
-  t('Themes Narrative');
+  t('Using no more than 50 words, please write an “invitation-pitch” for this activity to the campers.  What can they expect to do and learn?  ');
   t('Variations');
+  t('Wrap-Up');
   t('choose appropriate camp setting for maximum success (multiple selections allowed).');
 
   return $fields;
