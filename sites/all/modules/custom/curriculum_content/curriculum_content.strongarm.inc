@@ -93,10 +93,10 @@ function curriculum_content_strongarm() {
           'weight' => '0',
         ),
         'redirect' => array(
-          'weight' => '2',
+          'weight' => '1',
         ),
         'path' => array(
-          'weight' => '22',
+          'weight' => '21',
         ),
       ),
       'display' => array(),
