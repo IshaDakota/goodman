@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Goodman Showcase feature.
+ */
+
+include_once 'goodman_showcase.features.inc';
