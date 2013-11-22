@@ -79,7 +79,7 @@ function curriculum_content_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'weight' => '7',
       ),
     ),
   );
@@ -115,19 +115,14 @@ function curriculum_content_field_default_fields() {
       'bundle' => 'curriculum_content',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '<ol>
-<li>Describe any instructions on how to play/participate in the activity or experiential learning.
-<li>What should the facilitator/leader be saying to the group?
-<li>What are the “rules of the game”?
-<li>Please include the length of time the leader should allow the activity to go on.
-</ol>',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '10',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -151,78 +146,7 @@ function curriculum_content_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '16',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_activity_intro'.
-  $fields['node-curriculum_content-field_activity_intro'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_activity_intro',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '<ol>
-<li>Describe how the leader should introduce this learning experience. What should they do or say?
-<li>Is there an effective “hook” to do to grab the attention of the campers early on? If so, please describe that hook in detail.
-<li>Is there an opening set of questions to ask the campers? If so, please list a few sample questions to help introduce this topic.
-</ol>',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '9',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_activity_intro',
-      'label' => 'Introduction',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '1',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '8',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '15',
+        'weight' => '10',
       ),
     ),
   );
@@ -265,7 +189,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -289,78 +213,7 @@ function curriculum_content_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '18',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_activity_wrapup'.
-  $fields['node-curriculum_content-field_activity_wrapup'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_activity_wrapup',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '</ol>
-<li>Describe how the leader should close/wrap up this activity.
-<li>What are the lasting thoughts we want the kids to take away?
-<li>What connections to Israel do we want to be sure we have made.
-</ol>',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '11',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_activity_wrapup',
-      'label' => 'Wrap-Up',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '1',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '8',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '17',
+        'weight' => '11',
       ),
     ),
   );
@@ -432,7 +285,7 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '8',
+        'weight' => '5',
       ),
     ),
   );
@@ -477,7 +330,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '14',
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -501,72 +354,6 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '22',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_background'.
-  $fields['node-curriculum_content-field_background'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_background',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Material knowledge for staff suggested or required for program implantation.',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '18',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_background',
-      'label' => 'Background Information',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '1',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
         'weight' => '13',
       ),
     ),
@@ -619,7 +406,7 @@ function curriculum_content_field_default_fields() {
             'colorbox_node_style' => 'thumbnail',
           ),
           'type' => 'colorbox',
-          'weight' => '21',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -660,75 +447,7 @@ function curriculum_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '24',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_central_ideas'.
-  $fields['node-curriculum_content-field_central_ideas'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_central_ideas',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '1000',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '8',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_central_ideas',
-      'label' => 'Essential Questions',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '100',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '11',
+        'weight' => '16',
       ),
     ),
   );
@@ -797,7 +516,7 @@ function curriculum_content_field_default_fields() {
           'size' => '100',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
+        'weight' => '9',
       ),
     ),
   );
@@ -869,72 +588,7 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_gender'.
-  $fields['node-curriculum_content-field_gender'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_gender',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          'Female' => 'Female',
-          'Male' => 'Male',
-          'Either' => 'Either',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Is there a gender in mind when designing this program',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '19',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_gender',
-      'label' => 'Gender',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'content_taxonomy_opt_groups' => FALSE,
-        ),
-        'type' => 'options_select',
-        'weight' => '5',
+        'weight' => '2',
       ),
     ),
   );
@@ -1027,75 +681,7 @@ function curriculum_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '19',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-curriculum_content-field_learning_objectives'.
-  $fields['node-curriculum_content-field_learning_objectives'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_learning_objectives',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '1000',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'curriculum_content',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Please list 1-3 learning objectives we want the campers to take away from this activity (click "add another item" for each discrete learning objective).',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '16',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_learning_objectives',
-      'label' => 'Learning Objectives (Deprecated)',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '100',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '12',
+        'weight' => '14',
       ),
     ),
   );
@@ -1139,7 +725,7 @@ function curriculum_content_field_default_fields() {
       'bundle' => 'curriculum_content',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Please choose all the necessary equipment and materials needed to facilitate this activity successfully (you may add new materials to the list, but do so only after looking at the entire list). ',
+      'description' => 'You may add new materials to the list, but do so only after looking at the entire list.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1168,10 +754,13 @@ function curriculum_content_field_default_fields() {
         'settings' => array(
           'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
           'content_taxonomy_autocomplete_new_terms' => 'allow',
+          'delimiter' => '',
+          'limit' => '10',
+          'min_length' => '0',
           'size' => '60',
         ),
         'type' => 'autocomplete_deluxe_taxonomy',
-        'weight' => '9',
+        'weight' => '8',
       ),
     ),
   );
@@ -1204,6 +793,7 @@ function curriculum_content_field_default_fields() {
           0 => array(
             'vocabulary' => 'number_of_campers',
             'parent' => '0',
+            'depth' => '',
           ),
         ),
         'options_list_callback' => 'content_taxonomy_allowed_values',
@@ -1215,7 +805,7 @@ function curriculum_content_field_default_fields() {
       'bundle' => 'curriculum_content',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Check all that apply.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1243,7 +833,7 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '7',
+        'weight' => '4',
       ),
     ),
   );
@@ -1276,6 +866,7 @@ function curriculum_content_field_default_fields() {
           0 => array(
             'vocabulary' => 'duration',
             'parent' => '0',
+            'depth' => '',
           ),
         ),
         'options_list_callback' => 'content_taxonomy_allowed_values',
@@ -1287,7 +878,7 @@ function curriculum_content_field_default_fields() {
       'bundle' => 'curriculum_content',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Ideal length of this experiential learning from start to finish:',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1315,7 +906,7 @@ function curriculum_content_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
@@ -1359,7 +950,7 @@ function curriculum_content_field_default_fields() {
       'bundle' => 'curriculum_content',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'choose appropriate camp setting for maximum success (multiple selections allowed).',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1388,6 +979,9 @@ function curriculum_content_field_default_fields() {
         'settings' => array(
           'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
           'content_taxonomy_autocomplete_new_terms' => 'deny',
+          'delimiter' => '',
+          'limit' => '10',
+          'min_length' => '0',
           'size' => '60',
         ),
         'type' => 'autocomplete_deluxe_taxonomy',
@@ -1442,7 +1036,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '17',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1467,7 +1061,7 @@ function curriculum_content_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'autocomplete_deluxe_taxonomy',
-        'weight' => '14',
+        'weight' => '12',
       ),
     ),
   );
@@ -1513,7 +1107,7 @@ function curriculum_content_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
-          'weight' => '15',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1547,60 +1141,32 @@ function curriculum_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '20',
+        'weight' => '15',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('</ol>
-<li>Describe how the leader should close/wrap up this activity.
-<li>What are the lasting thoughts we want the kids to take away?
-<li>What connections to Israel do we want to be sure we have made.
-</ol>');
-  t('<ol>
-<li>Describe any instructions on how to play/participate in the activity or experiential learning.
-<li>What should the facilitator/leader be saying to the group?
-<li>What are the “rules of the game”?
-<li>Please include the length of time the leader should allow the activity to go on.
-</ol>');
-  t('<ol>
-<li>Describe how the leader should introduce this learning experience. What should they do or say?
-<li>Is there an effective “hook” to do to grab the attention of the campers early on? If so, please describe that hook in detail.
-<li>Is there an opening set of questions to ask the campers? If so, please list a few sample questions to help introduce this topic.
-</ol>');
   t('Age of Campers');
   t('Attribution');
   t('Background Cards');
-  t('Background Information');
-  t('Check all that apply.');
   t('Core Learnings');
   t('Curricular Subjects');
   t('Curriculum Themes');
   t('Describe how the leader can vary this activity/learning for various ages, genders, or size of groups.');
   t('Description');
-  t('Essential Questions');
   t('Explanation');
-  t('Gender');
-  t('Ideal length of this experiential learning from start to finish:');
-  t('Introduction');
-  t('Is there a gender in mind when designing this program');
-  t('Learning Objectives (Deprecated)');
-  t('Material knowledge for staff suggested or required for program implantation.');
   t('Materials Required');
   t('Number of Campers');
   t('Physical Space');
-  t('Please choose all the necessary equipment and materials needed to facilitate this activity successfully (you may add new materials to the list, but do so only after looking at the entire list). ');
   t('Please list 1-3 core learnings we want the campers to take away from this activity (click "add another item" for each discrete learning objective).');
-  t('Please list 1-3 learning objectives we want the campers to take away from this activity (click "add another item" for each discrete learning objective).');
   t('Program Duration');
   t('Supporting Images');
   t('Supporting Materials');
   t('Using no more than 50 words, please write an “invitation-pitch” for this activity to the campers.  What can they expect to do and learn?  ');
   t('Variations');
-  t('Wrap-Up');
-  t('choose appropriate camp setting for maximum success (multiple selections allowed).');
+  t('You may add new materials to the list, but do so only after looking at the entire list.');
 
   return $fields;
 }

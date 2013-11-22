@@ -459,3 +459,7 @@ input[type=search] {
 .form-item label {
   font-size: 1.33em;
 }
+
+input, textarea {
+  font-size: 1em;
+}

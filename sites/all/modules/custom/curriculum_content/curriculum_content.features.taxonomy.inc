@@ -105,7 +105,7 @@ function curriculum_content_taxonomy_default_vocabularies() {
       'name' => 'Space',
       'machine_name' => 'space',
       'description' => 'Physical Spaces at Camp where activities can be tagged',
-      'hierarchy' => '1',
+      'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
       'rdf_mapping' => array(
