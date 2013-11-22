@@ -409,3 +409,53 @@ input[type=search] {
    -moz-appearance:none;
    -webkit-appearance:none;
 }
+
+/**
+ * Filter tips.
+ *
+ * @see template.php
+ */
+.text-format-wrapper {
+  margin-bottom: 30px;
+}
+
+.text-format-wrapper fieldset.filter-wrapper {
+    float: right;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.text-format-wrapper fieldset.filter-wrapper .fieldset-wrapper .filter-help {
+        padding: 0;
+}
+
+.text-format-wrapper fieldset.filter-wrapper .fieldset-wrapper .form-item {
+        padding: 0;
+        margin-top: 0.5em;
+}
+
+#edit-field-curriculum-themes, 
+#edit-field-program-duration,
+#edit-field-number-campers, 
+#edit-field-age-campers {
+  margin-bottom: 1.5em;
+}
+
+#edit-field-curriculum-themes .form-item, 
+#edit-field-program-duration .form-item,
+#edit-field-number-campers .form-item, 
+#edit-field-age-campers .form-item {
+  display: inline;
+}
+
+#edit-field-curriculum-themes input.form-checkbox, 
+#edit-field-program-duration input.form-checkbox,
+#edit-field-number-campers input.form-checkbox, 
+#edit-field-age-campers input.form-checkbox {
+  margin: 5px 0 9px 15px;
+}
+
+.form-item label {
+  font-size: 1.33em;
+}

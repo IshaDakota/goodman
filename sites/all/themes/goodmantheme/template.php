@@ -119,3 +119,6 @@ function goodmantheme_text_format_wrapper($variables) {
 
   return $output;
 }
+
+function goodmantheme_filter_tips_more_info() { return ''; }
+function goodmantheme_filter_tips() { return ''; }
