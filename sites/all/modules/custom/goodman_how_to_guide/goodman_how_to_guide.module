@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Goodman How-To Guide feature.
+ */
+
+include_once 'goodman_how_to_guide.features.inc';
