@@ -8,6 +8,62 @@
  * as well.
  */
 
+/**
+* Flexible Media and Cross browser improvements
+* - This can cause issues in table cells where no width is set on the column,
+*   only in some versions of webkit and IE 7/8.
+* - declaring the width attribute on image elements and using max-width causes
+*   the "dissappering images" bug in IE8.
+* - Google maps break also, see below for fixes.
+*/
+img {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+/* /ht Ethan Marcotte - http://front.ie/l8rJaA */
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+/* Disable flexiblity for IE8 and below */
+.lt-ie9 img,
+.lt-ie9 object,
+.lt-ie9 embed,
+.lt-ie9 video {
+  max-width: none;
+}
+/* Override max-width 100% for map displays, as much as possible anyway... */
+#map img,
+.gmap img,
+.view-gmap img,
+.openlayers-map img,
+#getlocations_map_canvas img,
+#locationmap_map img,
+.geofieldMap img {
+  max-width: none !important;
+}
+/* Improve IE's resizing of images */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* Corrects inline-block display not defined in IE6/7/8/9 & FF3 */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/* Prevents modern browsers from displaying 'audio' without controls */
+audio:not([controls]) {
+  display: none;
+}
+
+
+
 #menu-bar ul a, #menu-bar ul a:visited {
     color: #E7E7E7;
 }
@@ -25,6 +81,10 @@
     margin: 20px 0;
 }
 
+#logo {
+    float: none;
+  }
+
 /* Start comment out
 h1#site-name {
     font-size: 2.692em;
@@ -32,9 +92,7 @@ h1#site-name {
     padding: 0;
 }
 
-#logo {
-    float: left;
-  }
+
 
 
 
@@ -170,7 +228,7 @@ End comment out */
   border-bottom: 1px solid #000;
   margin-bottom: 0.5em;
 }
-article .tags, .article-content .field-type-taxonomy-term-reference {
+article .tags, .node-content .field-type-taxonomy-term-reference {
   border: none;
   clear: both;
   display: block;
@@ -178,7 +236,7 @@ article .tags, .article-content .field-type-taxonomy-term-reference {
   margin: 0;
   padding: 0.5em 0;
 }
-article .tags .field-label, .article-content .field-type-taxonomy-term-reference h2.field-label {
+article .tags .field-label, .node-content .field-type-taxonomy-term-reference h2.field-label {
   display: block;
   font-size: 1.367em;
   font-weight: normal;
@@ -193,6 +251,18 @@ article .field-name-field-core-learnings .field-item {
 }
 
 /* Taxonomy Tags */
+article .field-type-taxonomy-term-reference ul.field-items li {
+  margin-right: 0.3em;
+}
+
+article .field-type-taxonomy-term-reference ul.field-items li a {
+  display: inline-block;
+  font-size: 0.857em;
+  padding: 0.5em 1em;
+  margin: 0.2em 0;
+  white-space: nowrap;
+}
+
 article .field-type-taxonomy-term-reference ul.field-items li a {
   display: inline-block;
   font-size: 0.857em;
@@ -358,16 +428,16 @@ width: 75%;
     margin: 0 3px 0 0;
 }
 
-.article-content .field-name-field-catalog-image {
+.node-content .field-name-field-catalog-image {
     float: left;
     margin: 0 1.5em 0 0;
 }
 
-.article-content .field-name-field-catalog-image figure {
+.node-content .field-name-field-catalog-image figure {
     padding: 0.5em 1.5em 0;
 }
 
-.article-content .field-name-body {
+.node-content .field-name-body {
     /*display: inline;
     float: left; */
 }
@@ -463,3 +533,110 @@ input[type=search] {
 input, textarea {
   font-size: 1em;
 }
+
+#columns {
+ background: #fff; 
+}
+
+/**
+ * Use this file to conditionally override styles for devices.
+ * If you adjust the media queries in the theme settings you should
+ * adjust them here so they match.
+ */
+
+/* Smartphone portrait */
+@media only screen and (max-width:320px) {
+  #branding {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .region-header {
+      clear: both;
+      float: none;
+      margin: 0 0 10px;
+      max-width: 100%;
+      overflow: hidden;
+      text-align: center;
+      width: 100%;
+  }
+  #search-form input#edit-keys, #block-search-form .form-item-search-block-form input {
+      width: 65%;
+  }
+  #search-block-form input.form-submit, #search-form input.form-submit {
+      float: left;
+  }
+}
+
+/* Smartphone landscape */
+@media only screen and (min-width:321px) and (max-width:480px) {
+  #branding {
+    width: 65%;
+    margin: 0 auto;
+  }
+  .region-header {
+      clear: both;
+      float: none;
+      margin: 0 0 10px;
+      max-width: 100%;
+      overflow: hidden;
+      text-align: center;
+      width: 100%;
+  }
+  #search-form input#edit-keys, #block-search-form .form-item-search-block-form input {
+    width: 78%;
+  }
+  #search-block-form input.form-submit, #search-form input.form-submit {
+      float: left;
+  }
+}
+
+/* Tablet portrait */
+@media only screen and (min-width:481px) and (max-width:768px) {
+  #branding {
+    width: 55%;
+  }
+  .region-header {
+      clear: none;
+      float: right;
+      max-width: 40%;  
+  }
+  #search-form input#edit-keys, #block-search-form .form-item-search-block-form input {
+    width: 60%;
+  }
+}
+
+/* Tablet landscape */
+@media only screen and (min-width:769px) and (max-width:1024px) {
+  #branding {
+    width: 50%;
+  } 
+  #block-block-2 {
+    float: right;
+    width: 40%;
+    clear: none;
+    display: inline-block;
+  }
+  
+  #block-views-80df5bfa2e8b5898d1fe7884b30364a3{
+    float: left;
+    width: 50%;§
+  }
+}
+
+/* Standard layout */
+@media only screen and (min-width:1025px) {
+#branding {
+  width: 40%;
+}  
+  #block-block-2 {
+    float: right;
+    width: 40%;
+    clear: none;
+  }
+  
+  #block-views-80df5bfa2e8b5898d1fe7884b30364a3{
+    float: left;
+    width: 50%;
+  }
+}
+

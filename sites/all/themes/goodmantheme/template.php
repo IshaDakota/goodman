@@ -7,11 +7,11 @@ function goodmantheme_preprocess_html(&$vars) {
   // Load the media queries styles
   // If you change the names of these files they must match here - these files are
   // in the /css/ directory of your subtheme - the names must be identical!
-  $media_queries_css = array(
-    'goodmantheme.responsive.style.css',
-    'goodmantheme.responsive.gpanels.css'
-  );
-  load_subtheme_media_queries($media_queries_css, 'goodmantheme'); // Replace 'goodmantheme' with your themes name
+  //$media_queries_css = array(
+  //  'goodmantheme.responsive.style.css',
+  //  'goodmantheme.responsive.gpanels.css'
+  //);
+  //load_subtheme_media_queries($media_queries_css, 'goodmantheme'); // Replace 'goodmantheme' with your themes name
 
  /**
   * Load IE specific stylesheets
@@ -31,7 +31,7 @@ function goodmantheme_preprocess_html(&$vars) {
     'lte IE 7' => 'ie-lte-7.css',
   );
   load_subtheme_ie_styles($ie_files, 'goodmantheme'); // Replace 'goodmantheme' with your themes name
-  // */
+   */
 
 }
 

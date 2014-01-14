@@ -4,7 +4,7 @@
 
   name        = Goodman Theme
   description = Goodman Theme is a starter sub-theme of <a href="http://drupal.org/project/corolla">Corolla</a> designed to get you up and sub-theming in a jiffy. You can easily modify this theme to sub-theme <a href="http://drupal.org/project/pixture_reloaded">Pixture Reloaded</a> or <a href="http://drupal.org/project/sky">Sky</a>, please see the included README or our <a href="http://bit.ly/q5hFT5">online documentation</a>. Remember to install Corolla, Sky or Pixture Reloaded first, and the base <a href="http://drupal.org/project/adaptivetheme">Adaptivetheme</a>.
-  version     = 7.x-2.0
+  version     = 7.x-3.0
 
 
 ;----------// Drupal core compatibility - dont change this!
@@ -192,7 +192,7 @@
 ;----------// Theme Settings END
 
 ; Information added by drupal.org packaging script on 2011-10-05
-version = "7.x-2.0"
+version = "7.x-3.0"
 core = "7.x"
 project = "footheme"
 datestamp = "1317813105"
